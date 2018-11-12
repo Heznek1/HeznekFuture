@@ -1,12 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
+import jQuery from 'jquery'
+import underscore from 'underscore'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+// jQuery setup
+window.$ = jQuery
+window.jQuery = jQuery
+
+// Uderscore.JS setup
+window._ = underscore
 
 // LightBootstrap plugin
 import LightBootstrap from './light-bootstrap-main'
 
 // router setup
 import routes from './routes/routes'
+
+// Font Awesome
+library.add(fas)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
