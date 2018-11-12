@@ -67,19 +67,157 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".eslintrc.js" />
+    <Content Include=".postcssrc.js" />
+    <Content Include="build\build.js" />
+    <Content Include="build\check-versions.js" />
+    <Content Include="build\dev-client.js" />
+    <Content Include="build\dev-server.js" />
+    <Content Include="build\utils.js" />
+    <Content Include="build\vue-loader.conf.js" />
+    <Content Include="build\webpack.base.conf.js" />
+    <Content Include="build\webpack.custom.js" />
+    <Content Include="build\webpack.dev.conf.js" />
+    <Content Include="build\webpack.prod.conf.js" />
+    <Content Include="build\webpack.test.conf.js" />
+    <Content Include="config\dev.env.js" />
+    <Content Include="config\index.js" />
+    <Content Include="config\prod.env.js" />
+    <Content Include="config\test.env.js" />
+    <Content Include="documentation\css\demo.css" />
+    <Content Include="documentation\css\documentation.css" />
+    <Content Include="documentation\css\light-dashboard.css" />
+    <Content Include="documentation\img\apple-icon.png" />
+    <Content Include="documentation\img\back.jpg" />
+    <Content Include="documentation\img\favicon.png" />
+    <Content Include="documentation\img\tim-logo.png" />
+    <Content Include="documentation\tutorial-components.html" />
+    <Content Include="index.html" />
+    <Content Include="src\assets\css\demo.css" />
+    <Content Include="src\components\Dashboard\Views\Maps\API_KEY.js" />
+    <Content Include="src\components\UIComponents\index.js" />
+    <Content Include="src\components\UIComponents\SidebarPlugin\index.js" />
+    <Content Include="src\globalComponents.js" />
+    <Content Include="src\globalDirectives.js" />
+    <Content Include="src\light-bootstrap-main.js" />
+    <Content Include="src\main.js" />
+    <Content Include="src\routes\routes.js" />
+    <Content Include="static\css\nucleo-icons.css" />
+    <Content Include="static\Dashboard.PNG" />
+    <Content Include="static\favicon.png" />
+    <Content Include="static\fonts\nucleo-icons.svg" />
+    <Content Include="static\img\default-avatar.png" />
+    <Content Include="static\img\faces\face-0.jpg" />
+    <Content Include="static\img\faces\face-1.jpg" />
+    <Content Include="static\img\faces\face-2.jpg" />
+    <Content Include="static\img\faces\face-3.jpg" />
+    <Content Include="static\img\faces\face-4.jpg" />
+    <Content Include="static\img\faces\face-5.jpg" />
+    <Content Include="static\img\faces\face-6.jpg" />
+    <Content Include="static\img\faces\face-7.jpg" />
+    <Content Include="static\img\faces\tim_vector.jpe" />
+    <Content Include="static\img\favicon.ico" />
+    <Content Include="static\img\favicon.png" />
+    <Content Include="static\img\loading-bubbles.svg" />
+    <Content Include="static\img\mask.png" />
+    <Content Include="static\img\new_logo.png" />
+    <Content Include="static\img\sidebar-1.jpg" />
+    <Content Include="static\img\sidebar-2.jpg" />
+    <Content Include="static\img\sidebar-3.jpg" />
+    <Content Include="static\img\sidebar-4.jpg" />
+    <Content Include="static\img\sidebar-5.jpg" />
+    <Content Include="static\img\tim_80x80.png" />
+    <Content Include="static\img\vue-logo.png" />
+    <Content Include="test\unit\index.js" />
+    <Content Include="test\unit\karma.conf.js" />
+    <Content Include="test\unit\specs\FormGroupInput.spec.js" />
+    <Content Include="test\unit\specs\Overview.spec.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".babelrc" />
+    <Content Include=".editorconfig" />
+    <Content Include=".eslintignore" />
+    <Content Include=".gitignore" />
+    <Content Include="CHANGELOG.md" />
+    <Content Include="CONTRIBUTING.md" />
+    <Content Include="package.json" />
     <None Include="packages.config" />
+    <Content Include="src\App.vue" />
+    <Content Include="src\assets\sass\lbd\mixins\_buttons.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_cards.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_chartist.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_icons.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_inputs.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_labels.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_morphing-buttons.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_navbars.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_social-buttons.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_tabs.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_transparency.scss" />
+    <Content Include="src\assets\sass\lbd\mixins\_vendor-prefixes.scss" />
+    <Content Include="src\assets\sass\lbd\plugins\_animate.scss" />
+    <Content Include="src\assets\sass\lbd\_alerts.scss" />
+    <Content Include="src\assets\sass\lbd\_buttons.scss" />
+    <Content Include="src\assets\sass\lbd\_cards.scss" />
+    <Content Include="src\assets\sass\lbd\_chartist.scss" />
+    <Content Include="src\assets\sass\lbd\_checkbox-radio-switch.scss" />
+    <Content Include="src\assets\sass\lbd\_dropdown.scss" />
+    <Content Include="src\assets\sass\lbd\_footers.scss" />
+    <Content Include="src\assets\sass\lbd\_inputs.scss" />
+    <Content Include="src\assets\sass\lbd\_misc.scss" />
+    <Content Include="src\assets\sass\lbd\_mixins.scss" />
+    <Content Include="src\assets\sass\lbd\_modal.scss" />
+    <Content Include="src\assets\sass\lbd\_navbars.scss" />
+    <Content Include="src\assets\sass\lbd\_partial-nucleo-icons.scss" />
+    <Content Include="src\assets\sass\lbd\_responsive.scss" />
+    <Content Include="src\assets\sass\lbd\_sidebar-and-main-panel.scss" />
+    <Content Include="src\assets\sass\lbd\_tables.scss" />
+    <Content Include="src\assets\sass\lbd\_tooltip.scss" />
+    <Content Include="src\assets\sass\lbd\_typography.scss" />
+    <Content Include="src\assets\sass\lbd\_variables.scss" />
+    <Content Include="src\assets\sass\light-bootstrap-dashboard.scss" />
+    <Content Include="src\components\Dashboard\Layout\Content.vue" />
+    <Content Include="src\components\Dashboard\Layout\ContentFooter.vue" />
+    <Content Include="src\components\Dashboard\Layout\DashboardLayout.vue" />
+    <Content Include="src\components\Dashboard\Layout\MobileMenu.vue" />
+    <Content Include="src\components\Dashboard\Layout\TopNavbar.vue" />
+    <Content Include="src\components\Dashboard\Views\Icons.vue" />
+    <Content Include="src\components\Dashboard\Views\Maps.vue" />
+    <Content Include="src\components\Dashboard\Views\Notifications.vue" />
+    <Content Include="src\components\Dashboard\Views\Overview.vue" />
+    <Content Include="src\components\Dashboard\Views\TableList.vue" />
+    <Content Include="src\components\Dashboard\Views\Typography.vue" />
+    <Content Include="src\components\Dashboard\Views\UserProfile.vue" />
+    <Content Include="src\components\Dashboard\Views\UserProfile\EditProfileForm.vue" />
+    <Content Include="src\components\Dashboard\Views\UserProfile\UserCard.vue" />
+    <Content Include="src\components\GeneralViews\NotFoundPage.vue" />
+    <Content Include="src\components\UIComponents\Cards\Card.vue" />
+    <Content Include="src\components\UIComponents\Cards\ChartCard.vue" />
+    <Content Include="src\components\UIComponents\Cards\StatsCard.vue" />
+    <Content Include="src\components\UIComponents\Dropdown.vue" />
+    <Content Include="src\components\UIComponents\Inputs\Checkbox.vue" />
+    <Content Include="src\components\UIComponents\Inputs\formGroupInput.vue" />
+    <Content Include="src\components\UIComponents\Inputs\Radio.vue" />
+    <Content Include="src\components\UIComponents\SidebarPlugin\SideBar.vue" />
+    <Content Include="src\components\UIComponents\SidebarPlugin\SidebarLink.vue" />
+    <Content Include="src\components\UIComponents\Table.vue" />
+    <Content Include="static\.gitkeep" />
+    <Content Include="static\fonts\nucleo-icons.eot" />
+    <Content Include="static\fonts\nucleo-icons.ttf" />
+    <Content Include="static\fonts\nucleo-icons.woff" />
+    <Content Include="static\fonts\nucleo-icons.woff2" />
+    <Content Include="test\unit\.eslintrc" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="yarn.lock" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
