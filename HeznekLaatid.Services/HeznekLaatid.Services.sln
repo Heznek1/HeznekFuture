@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeznekLaatid.Services", "HeznekLaatid.Services\HeznekLaatid.Services.csproj", "{75ABA274-07FC-4279-87A8-C4E5870CF633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeznekLaatid.Services.Tests", "HeznekLaatid.Services.Tests\HeznekLaatid.Services.Tests.csproj", "{5D12F1FF-80DD-4681-95ED-04D18119E22C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75ABA274-07FC-4279-87A8-C4E5870CF633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75ABA274-07FC-4279-87A8-C4E5870CF633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75ABA274-07FC-4279-87A8-C4E5870CF633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75ABA274-07FC-4279-87A8-C4E5870CF633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D12F1FF-80DD-4681-95ED-04D18119E22C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D12F1FF-80DD-4681-95ED-04D18119E22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D12F1FF-80DD-4681-95ED-04D18119E22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D12F1FF-80DD-4681-95ED-04D18119E22C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D18FE39-DB43-4743-9804-DA2B99CFE94E}
+	EndGlobalSection
+EndGlobal
