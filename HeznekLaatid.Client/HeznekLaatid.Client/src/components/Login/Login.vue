@@ -6,14 +6,15 @@
           <div class="card-body">
             <h5 class="card-title text-center">{{formTitle}}</h5>
             <div class="form">
-              <form class="signin">
+              <form class="signin" v-on:submit.prevent='onLogin'>
+                <div class="error"></div>
                 <div class="form-label-group">
-                  <input type="email" id="input-email-signin" class="form-control" placeholder="Email address" required autofocus>
-                  <label for="input-email-signin">Email address</label>
+                  <input type="text" id="input-email-signin" class="form-control" v-model='userSignInCredentials.username' placeholder="Username" required autofocus>
+                  <label for="input-email-signin">Username</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="input-password-signin" class="form-control" placeholder="Password" required>
+                  <input type="password" id="input-password-signin" class="form-control" v-model='userSignInCredentials.password' placeholder="Password" required>
                   <label for="input-password-signin">Password</label>
                 </div>
 
@@ -51,7 +52,7 @@
 
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
                 <hr class="my-4">
-                <p class="message">Already registerd? <a href="#" @click='animateForm'>Sign In</a></p>
+                <p class="message">Already registered? <a href="#" @click='animateForm'>Sign In</a></p>
               </form>
             </div>
           </div>
