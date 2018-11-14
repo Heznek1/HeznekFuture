@@ -1,5 +1,6 @@
 import axios from 'axios';
 import appsettings from '../../configuration/appsettings.js';
+import windowAdapter from '../../adapters/window.adapter.js';
 
 export default {
   created () {},
@@ -28,7 +29,7 @@ export default {
       let that = this;
       axios.post(appsettings.getAuthenticationUrl(), that.userSignInCredentials)
       .then(function(response){
-        console.log(response);
+        windowAdapter.setDataToSessionStorage(response.data);
       })
       .catch(function(){
         that.notifyError();
