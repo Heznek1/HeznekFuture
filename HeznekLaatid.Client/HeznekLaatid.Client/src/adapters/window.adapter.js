@@ -24,5 +24,17 @@ export default {
       window.sessionStorage.setItem(roleHeader, data.role);
       window.sessionStorage.setItem(instanceHeader, data.instance);
     }
+  },
+  clearSessionStorage: function () {
+    window.sessionStorage.clear();
+  },
+  getTokenFromSessionStorage: function () {
+    return window.sessionStorage.getItem(tokenHeader);
+  },
+  getRoleFromSessionStorage: function () {
+    return window.sessionStorage.getItem(roleHeader);
+  },
+  getInstanceFromSessionStorage: function () {
+    return window.sessionStorage.getItem(instanceHeader);
   }
 }
