@@ -29,24 +29,24 @@
                 <p class="message">Not registerd? <a href="#" @click='animateForm'>Create an account</a></p>
               </form>
 
-              <form class="register">
+              <form class="register" v-on:submit.prevent='onRegister'>
                 <div class="form-label-group">
-                  <input type="email" id="input-name-register" class="form-control" placeholder="Email address" required autofocus>
-                  <label for="input-name-register">Name</label>
+                  <input type="text" id="input-username-register" class="form-control" v-model="userRegisterDetails.username" placeholder="Username" required autofocus>
+                  <label for="input-username-register">Username</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="email" id="input-email-register" class="form-control" placeholder="Email address" required autofocus>
+                  <input type="email" id="input-email-register" class="form-control" v-model="userRegisterDetails.email" placeholder="Email address" required autofocus>
                   <label for="input-email-register">Email address</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="input-password-register" class="form-control" placeholder="Password" required>
+                  <input type="password" id="input-password-register" class="form-control" v-model="userRegisterDetails.password" placeholder="Password" required>
                   <label for="input-password-register">Password</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="input-password-confirm-register" class="form-control" placeholder="Password" required>
+                  <input type="password" id="input-password-confirm-register" class="form-control" v-model="userRegisterDetails.confirm" placeholder="Confirm password" required>
                   <label for="input-password-confirm-register">Confirm Password</label>
                 </div>
 
