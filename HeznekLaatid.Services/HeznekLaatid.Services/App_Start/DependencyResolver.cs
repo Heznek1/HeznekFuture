@@ -2,6 +2,8 @@
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using HeznekLaatid.Services.Interfaces;
+using HeznekLaatid.Services.Repositories;
 
 namespace HeznekLaatid.Services
 {
@@ -24,6 +26,7 @@ namespace HeznekLaatid.Services
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             // Register needed components
+            builder.RegisterType<UserRepository>().As<IUserRepository>();
 
             // Set the dependency to Autofac
             container = builder.Build();

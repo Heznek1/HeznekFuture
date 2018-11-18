@@ -9,8 +9,8 @@
               <form class="signin" v-on:submit.prevent='onLogin'>
                 <div class="error"></div>
                 <div class="form-label-group">
-                  <input type="text" id="input-email-signin" class="form-control" v-model='userSignInCredentials.username' placeholder="Username" required autofocus>
-                  <label for="input-email-signin">Username</label>
+                  <input type="text" id="input-username-signin" class="form-control" v-model='userSignInCredentials.username' placeholder="Username" required autofocus>
+                  <label for="input-username-signin">ID</label>
                 </div>
 
                 <div class="form-label-group">
@@ -48,6 +48,21 @@
                 <div class="form-label-group">
                   <input type="password" id="input-password-confirm-register" class="form-control" v-model="userRegisterDetails.confirm" placeholder="Confirm password" required>
                   <label for="input-password-confirm-register">Confirm Password</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" id="input-first-name-register" class="form-control" v-model="userRegisterDetails.first_name" placeholder="First Name" required>
+                  <label for="input-first-name-register">First name</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" id="input-last-name-register" class="form-control" v-model="userRegisterDetails.last_name" placeholder="Last Name" required>
+                  <label for="input-last-name-register">Last name</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" id="input-phone-register" class="form-control" v-model="userRegisterDetails.phone" placeholder="Phone" required>
+                  <label for="input-phone-register">Phone</label>
                 </div>
 
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>

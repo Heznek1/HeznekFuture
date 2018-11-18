@@ -8,14 +8,17 @@ export default {
   data () {
     return {
       userSignInCredentials: {
-        username: 'superuser',
-        password: 'Password1'
+        username: '',
+        password: ''
       },
       userRegisterDetails: {
         username: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirm: '',
+        phone: ''
       },
       signInTitle: true
     };
