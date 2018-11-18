@@ -1,11 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web.Http;
 using HeznekLaatid.Services.Interfaces;
+using HeznekLaatid.Services.Utils;
 using Shared.View_Model;
+using TokenService.Filters;
 
 namespace HeznekLaatid.Services.Controllers
 {
-    [AllowAnonymous]
+    [JwtAuthentication]
     public class UserController : ApiController
     {
         private readonly IUserRepository userRepository;
@@ -16,6 +20,7 @@ namespace HeznekLaatid.Services.Controllers
 
         [HttpPost]
         [Route("api/internal/profile")]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> SetRegisteredUserProfile([FromBody] UserRegistrationViewModel userProfile)
         {
             if (userProfile == null)
@@ -27,11 +32,47 @@ namespace HeznekLaatid.Services.Controllers
             {
                 await this.userRepository.CreateUser(userProfile);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 return InternalServerError(ex);
             }
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("api/profile")]
+        public async Task<IHttpActionResult> GetUserProfile()
+        {
+            var user = User as ClaimsPrincipal;
+            try
+            {
+                var data = await this.userRepository.GetUserProfile(user.GetCurrentUserId());
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        [HttpPatch]
+        [Route("api/profile")]
+        public async Task<IHttpActionResult> UpdateUserProfile([FromBody] UserProfile profile)
+        {
+            if (string.IsNullOrEmpty(profile.unique_id) || string.IsNullOrWhiteSpace(profile.unique_id))
+            {
+                return BadRequest("User id was not provided!");
+            }
+
+            try
+            {
+                await this.userRepository.UpdateUserProfile(profile);
+                return Ok("Profile updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
     }
 }

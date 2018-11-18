@@ -159,6 +159,7 @@
     <Compile Include="UserProfile.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\UserClaimsUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="HeznekServiceEntities.edmx">
@@ -168,7 +169,9 @@
     <Content Include="HeznekServiceEntities.edmx.diagram">
       <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
     </Content>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

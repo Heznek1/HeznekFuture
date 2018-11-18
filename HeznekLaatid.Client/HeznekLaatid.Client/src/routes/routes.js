@@ -11,6 +11,7 @@ import Icons from 'src/components/Dashboard/Views/Icons.vue'
 import Maps from 'src/components/Dashboard/Views/Maps.vue'
 import Notifications from 'src/components/Dashboard/Views/Notifications.vue'
 import Login from 'src/components/Login/Login.vue'
+import Profile from 'src/components/Profile/Profile.vue'
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     component: DashboardLayout,
     redirect: '/admin/overview',
     children: [
+      {
+        path: 'profile',
+        name: 'profile',
+        component: Profile
+      },
       {
         path: 'overview',
         name: 'Overview',

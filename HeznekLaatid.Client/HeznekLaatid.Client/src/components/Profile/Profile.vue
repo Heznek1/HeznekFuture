@@ -14,18 +14,11 @@
     </div>
   </div>
 </template>
-<script>
-  import EditProfileForm from './UserProfile/EditProfileForm.vue'
-  import UserCard from './UserProfile/UserCard.vue'
 
-  export default {
-    components: {
-      EditProfileForm,
-      UserCard
-    }
-  }
-
+<script src="./profile.js">
 </script>
-<style>
 
+<style src="./profile.css">
 </style>
+
+
