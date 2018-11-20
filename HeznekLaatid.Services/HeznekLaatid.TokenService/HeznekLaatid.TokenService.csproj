@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{75ABA274-07FC-4279-87A8-C4E5870CF633}</ProjectGuid>
+    <ProjectGuid>{BC46C5A3-B020-418E-9FF7-186FAF7EB5D3}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HeznekLaatid.Services</RootNamespace>
-    <AssemblyName>HeznekLaatid.Services</AssemblyName>
+    <RootNamespace>HeznekLaatid.TokenService</RootNamespace>
+    <AssemblyName>HeznekLaatid.TokenService</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
@@ -23,7 +23,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,8 +32,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,10 +56,24 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.3.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.3.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.3.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>C:\Users\Adrian\.nuget\packages\system.identitymodel.tokens.jwt\5.3.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -75,17 +86,19 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -109,61 +122,83 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="HeznekServiceEntities.Context.tt">
+    <Content Include="TokenServiceEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HeznekServiceEntities.Context.cs</LastGenOutput>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
+      <LastGenOutput>TokenServiceEntities.Context.cs</LastGenOutput>
+      <DependentUpon>TokenServiceEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="HeznekServiceEntities.tt">
+    <Content Include="TokenServiceEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
-      <LastGenOutput>HeznekServiceEntities.cs</LastGenOutput>
+      <DependentUpon>TokenServiceEntities.edmx</DependentUpon>
+      <LastGenOutput>TokenServiceEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Bootstrapper.cs" />
-    <Compile Include="App_Start\DependencyResolver.cs" />
+    <Compile Include="App_Start\DependencyInjectionResolver.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
+    <Compile Include="Filters\AddChallengeOnUnauthorizedResult.cs" />
+    <Compile Include="Filters\AuthenticationFailureResult.cs" />
+    <Compile Include="Filters\HttpAuthenticationChallengeContextExtensions.cs" />
+    <Compile Include="Filters\JwtAuthenticationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HeznekServiceEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HeznekServiceEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HeznekServiceEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
+    <Compile Include="Helpers\Interfaces\ISubscribersEvents.cs" />
+    <Compile Include="Helpers\SubscribersEvents.cs" />
+    <Compile Include="Instance.cs">
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="JwtManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="UserProfile.cs">
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+    <Compile Include="Role.cs">
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Utils\UserClaimsUtils.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subscriber.cs">
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TokenServiceEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TokenServiceEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TokenServiceEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TokenServiceEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TokenServiceEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="HeznekServiceEntities.edmx">
+    <None Include="packages.config" />
+    <EntityDeploy Include="TokenServiceEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HeznekServiceEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>TokenServiceEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="HeznekServiceEntities.edmx.diagram">
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
+    <Content Include="TokenServiceEntities.edmx.diagram">
+      <DependentUpon>TokenServiceEntities.edmx</DependentUpon>
     </Content>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -176,17 +211,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\HeznekLaatid.Core\HeznekLaatid.Core.csproj">
       <Project>{dc2b30a0-91f6-4fb2-8d78-331db3c80791}</Project>
       <Name>HeznekLaatid.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HeznekLaatid.TokenService\HeznekLaatid.TokenService.csproj">
-      <Project>{bc46c5a3-b020-418e-9ff7-186faf7eb5d3}</Project>
-      <Name>HeznekLaatid.TokenService</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -201,9 +232,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57535</DevelopmentServerPort>
+          <DevelopmentServerPort>53929</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/hezneklaatid</IISUrl>
+          <IISUrl>http://localhost/tokenservice</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

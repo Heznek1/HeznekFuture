@@ -2,10 +2,10 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
+using HeznekLaatid.Core.View_Model;
 using HeznekLaatid.Services.Interfaces;
 using HeznekLaatid.Services.Utils;
-using Shared.View_Model;
-using TokenService.Filters;
+using HeznekLaatid.TokenService.Filters;
 
 namespace HeznekLaatid.Services.Controllers
 {

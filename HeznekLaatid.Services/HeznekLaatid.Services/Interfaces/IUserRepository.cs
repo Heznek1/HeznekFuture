@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Shared.View_Model;
+using HeznekLaatid.Core.View_Model;
 
 namespace HeznekLaatid.Services.Interfaces
 {

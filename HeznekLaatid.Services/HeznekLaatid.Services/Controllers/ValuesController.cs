@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 using System.Web.Http;
-using TokenService.Filters;
+using HeznekLaatid.TokenService.Filters;
 
 namespace HeznekLaatid.Services.Controllers
 {

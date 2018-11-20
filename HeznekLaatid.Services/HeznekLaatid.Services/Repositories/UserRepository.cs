@@ -1,9 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Linq;
 using System.Threading.Tasks;
+using HeznekLaatid.Core.View_Model;
 using HeznekLaatid.Services.Interfaces;
-using Shared.View_Model;
 
 namespace HeznekLaatid.Services.Repositories
 {
