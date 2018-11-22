@@ -73,8 +73,9 @@
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.IdentityModel.Tokens.Jwt">
-      <HintPath>C:\Users\Adrian\.nuget\packages\system.identitymodel.tokens.jwt\5.3.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.3.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
@@ -124,8 +125,8 @@
     <Content Include="Global.asax" />
     <Content Include="TokenServiceEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TokenServiceEntities.Context.cs</LastGenOutput>
       <DependentUpon>TokenServiceEntities.edmx</DependentUpon>
+      <LastGenOutput>TokenServiceEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="TokenServiceEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -159,16 +160,7 @@
     <Compile Include="Role.cs">
       <DependentUpon>TokenServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Subscriber.cs">
-      <DependentUpon>TokenServiceEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>TokenServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TokenServiceEntities.Context.cs">

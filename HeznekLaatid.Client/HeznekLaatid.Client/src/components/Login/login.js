@@ -47,6 +47,7 @@ export default {
         that.notifySuccess(template.success);
       })
       .catch(function(error){
+        console.log(error);
         that.notifyError(template.customMessage(error.message));
       });
     },

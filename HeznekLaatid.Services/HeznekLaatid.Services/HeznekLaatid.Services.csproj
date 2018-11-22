@@ -109,16 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="HeznekServiceEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HeznekServiceEntities.Context.cs</LastGenOutput>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
-    </Content>
-    <Content Include="HeznekServiceEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
-      <LastGenOutput>HeznekServiceEntities.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,37 +120,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HeznekServiceEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HeznekServiceEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HeznekServiceEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="UserProfile.cs">
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Utils\UserClaimsUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="HeznekServiceEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HeznekServiceEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="HeznekServiceEntities.edmx.diagram">
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
