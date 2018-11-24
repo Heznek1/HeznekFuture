@@ -7,6 +7,7 @@ using HeznekLaatid.Services.Interfaces;
 using HeznekLaatid.Services.Utils;
 using HeznekLaatid.TokenService.Filters;
 
+
 namespace HeznekLaatid.Services.Controllers
 {
     [JwtAuthentication]
@@ -54,7 +55,7 @@ namespace HeznekLaatid.Services.Controllers
                 return InternalServerError(ex);
             }
         }
-
+        /*
         [HttpPatch]
         [Route("api/profile")]
         public async Task<IHttpActionResult> UpdateUserProfile([FromBody] UserProfile profile)
@@ -73,6 +74,6 @@ namespace HeznekLaatid.Services.Controllers
             {
                 return InternalServerError(ex);
             }
-        }
+        }*/
     }
 }
