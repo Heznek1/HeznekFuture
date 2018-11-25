@@ -26,7 +26,7 @@ namespace HeznekLaatid.Services
                 status = 2
             };
 
-            await UserData.AddUserToUsers(user);
+            UserData.AddUserToUsers(user);
 
         }
     }

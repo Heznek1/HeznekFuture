@@ -37,6 +37,7 @@ namespace HeznekLaatid.Services
                     usersAL.Add(user);
                 }
             }
+
             return usersAL;
         }
 
@@ -44,17 +45,18 @@ namespace HeznekLaatid.Services
         /// give all the scholarships students in the table(no matter what is their secondary status)
         /// </Summary>
         public static ArrayList GetAllScholarshipsStudents()
-        {           
-                List<userTbl> users = GetAllUsers();
-                ArrayList usersAL = new ArrayList();
+        {
+            List<userTbl> users = GetAllUsers();
+            ArrayList usersAL = new ArrayList();
 
-                foreach (var user in users)
-                {
-                    if (user.status < 3)
-                        usersAL.Add(user);
-                }
-                return usersAL;
-            
+            foreach (var user in users)
+            {
+                if (user.status < 3)
+                    usersAL.Add(user);
+            }
+
+            return usersAL;
+
         }
 
         /// <Summary>
@@ -74,6 +76,7 @@ namespace HeznekLaatid.Services
                     usersAL.Add(user);
                 }
             }
+
             return users;
 
         }
@@ -92,6 +95,7 @@ namespace HeznekLaatid.Services
                     return user;
                 }
             }
+
             return null;
         }
 
@@ -110,6 +114,7 @@ namespace HeznekLaatid.Services
                     usersAL.Add(user);
                 }
             }
+
             return usersAL;
         }
 
@@ -128,6 +133,7 @@ namespace HeznekLaatid.Services
                     usersAL.Add(user);
                 }
             }
+
             return usersAL;
         }
 
@@ -146,6 +152,7 @@ namespace HeznekLaatid.Services
                     usersAL.Add(user);
                 }
             }
+
             return usersAL;
         }
 
@@ -160,6 +167,7 @@ namespace HeznekLaatid.Services
                 return users;
             }
         }
+
         /// <Summary>
         /// get all active candidates with equal or grater psychometric grade
         /// </Summary>
@@ -175,6 +183,7 @@ namespace HeznekLaatid.Services
                     usersAL.Add(user);
                 }
             }
+
             return usersAL;
         }
 
@@ -195,6 +204,7 @@ namespace HeznekLaatid.Services
                     studentsAL.Add(student);
                 }
             }
+
             return studentsAL;
         }
 
@@ -214,6 +224,7 @@ namespace HeznekLaatid.Services
                     studentsAL.Add(student);
                 }
             }
+
             return studentsAL;
 
         }
@@ -235,6 +246,7 @@ namespace HeznekLaatid.Services
                     studentsAL.Add(student);
                 }
             }
+
             return studentsAL;
         }
 
@@ -258,6 +270,7 @@ namespace HeznekLaatid.Services
 
                 }
             }
+
             return studentsAL;
         }
 
@@ -282,6 +295,7 @@ namespace HeznekLaatid.Services
 
                 }
             }
+
             return studentsAL;
         }
 
@@ -301,13 +315,14 @@ namespace HeznekLaatid.Services
                     studentsAL.Add(student);
                 }
             }
+
             return studentsAL;
         }
 
         /// <Summary>
         /// get all chosen users with specific number of academic parents
         /// </Summary>
-        public static ArrayList GetNumOfAcademicParents(ArrayList users,int academicParents)
+        public static ArrayList GetNumOfAcademicParents(ArrayList users, int academicParents)
         {
             ArrayList chosenUsers = users;
             ArrayList newUsers = new ArrayList();
@@ -319,6 +334,7 @@ namespace HeznekLaatid.Services
                     newUsers.Add(user);
                 }
             }
+
             return newUsers;
         }
 
@@ -337,6 +353,7 @@ namespace HeznekLaatid.Services
                     newStudents.Add(student);
                 }
             }
+
             return newStudents;
         }
 
@@ -356,6 +373,7 @@ namespace HeznekLaatid.Services
                     newStudents.Add(student);
                 }
             }
+
             return newStudents;
         }
 
@@ -363,7 +381,8 @@ namespace HeznekLaatid.Services
         /// get all chosen users from the same chosen gender
         /// </Summary>
         public static ArrayList GetAllChosenUsersFromTheSameGender(string gender, ArrayList usersArr)
-        {//get all the chosen users from the same gender 'F' = female or 'M'=male
+        {
+            //get all the chosen users from the same gender 'F' = female or 'M'=male
             ArrayList users = usersArr;
             ArrayList usersAL = new ArrayList();
 
@@ -374,6 +393,7 @@ namespace HeznekLaatid.Services
                     usersAL.Add(user);
                 }
             }
+
             return usersAL;
         }
         /*
@@ -387,24 +407,49 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// add user to the list of users
         /// </Summary>
-        public static async Task AddUserToUsers(userTbl user)
+        public static void AddUserToUsers(userTbl user)
         {
-            using (var db = new HeznekDBEntities())
+            try
             {
-                db.userTbl.Add(user);              
-                await db.SaveChangesAsync();
-                Console.WriteLine("Add user Complete");
+                if (!CheckIfUserInList(user.id))
+                {
+                    using (var db = new HeznekDBEntities())
+                    {
+                        db.userTbl.Add(user);
+                        db.SaveChanges();                       
+                    }
+
+                    if (user.status == 5)//if he is a candidate so add him to another table
+                    {
+                        AddUserToActiveCandidate(user.id);
+                    }
+                }
             }
-            if(user.status == 5)
+            catch (Exception ex)
             {
-                await AddUserToActiveCandidate(user.id);
+
+                throw;
             }
         }
+
+        private static bool CheckIfUserInList(string id)
+        {
+                List<userTbl> users = GetAllUsers();
+
+                    foreach (var user in users)
+                    {
+                        if (user.id.Equals(id))
+                            return true;
+                    }
+
+                 return false;
+        }
+        
 
         /// <Summary>
         /// add user to the list of active candidates
         /// </Summary>
-        public static async Task AddUserToActiveCandidate(string userId)
+        public static void AddUserToActiveCandidate(string userId)
         {
             var user = new generalDetailsActiveCandidate()
             {
@@ -414,8 +459,7 @@ namespace HeznekLaatid.Services
             using (var db = new HeznekDBEntities())
             {
                 db.generalDetailsActiveCandidate.Add(user);
-                await db.SaveChangesAsync();
-                Console.WriteLine("Add user to candidates list Complete");
+                db.SaveChangesAsync();
             }
         }
 
@@ -438,7 +482,6 @@ namespace HeznekLaatid.Services
                         db.userTbl.Remove(user);
                         db.userTbl.Add(updatedUser);
                         await db.SaveChangesAsync();
-                        Console.WriteLine("Update Complete");
                     }
                 }
             }
@@ -457,10 +500,11 @@ namespace HeznekLaatid.Services
                     {
                         db.userTbl.Remove(user);
                         await db.SaveChangesAsync();
-                        Console.WriteLine("Remove Complete");
                     }
                 }
             }
         }
     }
 }
+
+

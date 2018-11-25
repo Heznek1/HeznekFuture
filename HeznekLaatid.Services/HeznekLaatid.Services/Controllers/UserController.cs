@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using HeznekLaatid.Core.View_Model;
 using HeznekLaatid.Services.Interfaces;
+using HeznekLaatid.Services.Repositories;
 using HeznekLaatid.Services.Utils;
 using HeznekLaatid.TokenService.Filters;
 
@@ -16,6 +17,7 @@ namespace HeznekLaatid.Services.Controllers
         private readonly IUserRepository userRepository;
         public UserController(IUserRepository userRepository)
         {
+            new UserRepository();
             this.userRepository = userRepository;
         }
 

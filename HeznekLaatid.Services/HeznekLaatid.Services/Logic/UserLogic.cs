@@ -7,5 +7,6 @@ namespace HeznekLaatid.Services.Logic
 {
     public class UserLogic
     {
+        
     }
 }
