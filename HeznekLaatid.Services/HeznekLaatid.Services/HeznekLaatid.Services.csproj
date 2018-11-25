@@ -109,57 +109,115 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="HeznekServiceEntities.Context.tt">
+    <Content Include="HeznekServiceDbEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HeznekServiceEntities.Context.cs</LastGenOutput>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
+      <DependentUpon>HeznekServiceDbEntities.edmx</DependentUpon>
+      <LastGenOutput>HeznekServiceDbEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="HeznekServiceEntities.tt">
+    <Content Include="HeznekServiceDbEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
-      <LastGenOutput>HeznekServiceEntities.cs</LastGenOutput>
+      <DependentUpon>HeznekServiceDbEntities.edmx</DependentUpon>
+      <LastGenOutput>HeznekServiceDbEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademicInstitution.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\DependencyResolver.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Bank.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactStudent.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ScolarshipController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Event.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FieldOfStudy.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="File.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HeznekServiceEntities.Context.cs">
+    <Compile Include="HeznekServiceDbEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.Context.tt</DependentUpon>
+      <DependentUpon>HeznekServiceDbEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="HeznekServiceEntities.cs">
+    <Compile Include="HeznekServiceDbEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="HeznekServiceEntities.Designer.cs">
+    <Compile Include="HeznekServiceDbEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
+      <DependentUpon>HeznekServiceDbEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IScholarshipRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="loginAndPermission.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ScolarshipModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ScolarshipRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Scolarship.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentScolarship.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentVolunteer.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserProfile.cs">
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserType.cs">
+      <DependentUpon>HeznekServiceDbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\UserClaimsUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="HeznekServiceEntities.edmx">
+    <EntityDeploy Include="HeznekServiceDbEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HeznekServiceEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>HeznekServiceDbEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="HeznekServiceEntities.edmx.diagram">
-      <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
+    <Content Include="HeznekServiceDbEntities.edmx.diagram">
+      <DependentUpon>HeznekServiceDbEntities.edmx</DependentUpon>
     </Content>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -173,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

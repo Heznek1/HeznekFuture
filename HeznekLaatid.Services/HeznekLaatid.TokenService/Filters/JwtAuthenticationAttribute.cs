@@ -10,7 +10,7 @@ namespace HeznekLaatid.TokenService.Filters
     public class JwtAuthenticationAttribute : ActionFilterAttribute
     {
         public string Realm { get; set; }
-        public bool AllowMultiple => false;
+        public override bool AllowMultiple => false;
 
         public async Task AuthenticateAsync(HttpAuthenticationContext context, CancellationToken cancellationToken)
         {

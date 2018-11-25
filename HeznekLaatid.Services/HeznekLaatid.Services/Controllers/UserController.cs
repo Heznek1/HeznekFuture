@@ -59,7 +59,7 @@ namespace HeznekLaatid.Services.Controllers
         [Route("api/profile")]
         public async Task<IHttpActionResult> UpdateUserProfile([FromBody] UserProfile profile)
         {
-            if (string.IsNullOrEmpty(profile.unique_id) || string.IsNullOrWhiteSpace(profile.unique_id))
+            if (string.IsNullOrEmpty(profile.id) || string.IsNullOrWhiteSpace(profile.id))
             {
                 return BadRequest("User id was not provided!");
             }

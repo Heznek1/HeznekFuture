@@ -21,7 +21,7 @@ namespace HeznekLaatid.Services.Repositories
         {
             using (var db = new HeznekServiceDbEntities())
             {
-                return await db.UserProfiles.FirstOrDefaultAsync(p => p.unique_id == userId);
+                return await db.UserProfiles.FirstOrDefaultAsync(p => p.id == userId);
             }
         }
 
@@ -39,9 +39,9 @@ namespace HeznekLaatid.Services.Repositories
             return new UserProfile()
             {
                 email = user.email,
-                unique_id = user.username,
-                first_name = user.first_name,
-                last_name = user.last_name,
+                id = user.username,
+                firstName = user.first_name,
+                lastName = user.last_name,
                 phone = user.phone
             };
         }

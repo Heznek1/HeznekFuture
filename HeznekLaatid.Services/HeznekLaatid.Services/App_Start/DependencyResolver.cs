@@ -27,6 +27,7 @@ namespace HeznekLaatid.Services
 
             // Register needed components
             builder.RegisterType<UserRepository>().As<IUserRepository>();
+            builder.RegisterType<ScolarshipRepository>().As<IScholarshipRepository>();
 
             // Set the dependency to Autofac
             container = builder.Build();
