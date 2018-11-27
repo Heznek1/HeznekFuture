@@ -111,6 +111,7 @@ export default {
   },
   data () {
     return {
+      text: 'Hello',
       profile: {
         unique_id: '',
         first_name: '',

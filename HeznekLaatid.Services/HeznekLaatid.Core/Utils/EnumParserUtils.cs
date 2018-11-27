@@ -9,5 +9,11 @@ namespace HeznekLaatid.Core.Utils
             var result = Enum.Parse(typeof(T), Convert.ToString(input));
             return (T)Convert.ChangeType(result, typeof(T));
         }
+
+        public static T ToEnumType<T>(this string input)
+        {
+            var result = Enum.Parse(typeof(T), input);
+            return (T)Convert.ChangeType(result, typeof(T));
+        }
     }
 }

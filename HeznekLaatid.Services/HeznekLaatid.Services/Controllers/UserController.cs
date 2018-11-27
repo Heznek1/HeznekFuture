@@ -3,9 +3,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using HeznekLaatid.Core.View_Model;
+using HeznekLaatid.Services.Authorization.Filters;
+using HeznekLaatid.Services.Entities;
 using HeznekLaatid.Services.Interfaces;
 using HeznekLaatid.Services.Utils;
-using HeznekLaatid.TokenService.Filters;
 
 namespace HeznekLaatid.Services.Controllers
 {

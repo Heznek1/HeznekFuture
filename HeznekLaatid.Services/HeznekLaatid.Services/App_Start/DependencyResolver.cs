@@ -2,6 +2,8 @@
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using HeznekLaatid.Services.Authorization.Interfaces;
+using HeznekLaatid.Services.Authorization.Repositories;
 using HeznekLaatid.Services.Interfaces;
 using HeznekLaatid.Services.Repositories;
 
@@ -25,9 +27,12 @@ namespace HeznekLaatid.Services
         {
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
+            // Register Token Service
+            builder.RegisterType<TokenUserRepository>().As<ITokenUserRepository>();
+
             // Register needed components
             builder.RegisterType<UserRepository>().As<IUserRepository>();
-            builder.RegisterType<ScolarshipRepository>().As<IScholarshipRepository>();
+            builder.RegisterType<ScholarshipRepository>().As<IScholarshipRepository>();
 
             // Set the dependency to Autofac
             container = builder.Build();

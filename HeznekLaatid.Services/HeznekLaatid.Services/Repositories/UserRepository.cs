@@ -2,6 +2,7 @@
 using System.Data.Entity.Migrations;
 using System.Threading.Tasks;
 using HeznekLaatid.Core.View_Model;
+using HeznekLaatid.Services.Entities;
 using HeznekLaatid.Services.Interfaces;
 
 namespace HeznekLaatid.Services.Repositories

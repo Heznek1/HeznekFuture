@@ -12,6 +12,8 @@ import Maps from 'src/components/Dashboard/Views/Maps.vue'
 import Notifications from 'src/components/Dashboard/Views/Notifications.vue'
 import Login from 'src/components/Login/Login.vue'
 import Profile from 'src/components/Profile/Profile.vue'
+import Scholarship from 'src/components/Scholarship/Scholarship.vue'
+import EventView from 'src/components/Event/Event.vue'
 
 const routes = [
   {
@@ -40,6 +42,11 @@ const routes = [
         component: Overview
       },
       {
+        path: 'event',
+        name: 'Event',
+        component: EventView
+      },
+      {
         path: 'user',
         name: 'User',
         component: UserProfile
@@ -47,7 +54,7 @@ const routes = [
       {
         path: 'table-list',
         name: 'Table List',
-        component: TableList
+        component: Scholarship
       },
       {
         path: 'typography',

@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Identity Provider\Instance.cs" />
     <Compile Include="Identity Provider\Role.cs" />
-    <Compile Include="Identity Provider\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Token.cs" />
     <Compile Include="Utils\EncryptUtils.cs" />

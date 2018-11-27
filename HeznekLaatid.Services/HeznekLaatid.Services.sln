@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeznekLaatid.Services.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeznekLaatid.Core", "HeznekLaatid.Core\HeznekLaatid.Core.csproj", "{DC2B30A0-91F6-4FB2-8D78-331DB3C80791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeznekLaatid.TokenService", "HeznekLaatid.TokenService\HeznekLaatid.TokenService.csproj", "{BC46C5A3-B020-418E-9FF7-186FAF7EB5D3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{DC2B30A0-91F6-4FB2-8D78-331DB3C80791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC2B30A0-91F6-4FB2-8D78-331DB3C80791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC2B30A0-91F6-4FB2-8D78-331DB3C80791}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC46C5A3-B020-418E-9FF7-186FAF7EB5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC46C5A3-B020-418E-9FF7-186FAF7EB5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC46C5A3-B020-418E-9FF7-186FAF7EB5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC46C5A3-B020-418E-9FF7-186FAF7EB5D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
