@@ -68,13 +68,19 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.0\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -90,9 +96,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -145,8 +148,10 @@
     <Compile Include="Authorization\Repositories\TokenUserRepository.cs" />
     <Compile Include="Controllers\ScolarshipController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Entities\AcademicInstitution.cs">
+    <Compile Include="Entities\Academic_Institut.cs">
+      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Active_Candidate_Info.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Bank.cs">
@@ -155,16 +160,19 @@
     <Compile Include="Entities\City.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ContactStudent.cs">
+    <Compile Include="Entities\Contact_Candidate.cs">
+      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Deposits_scholarship.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Event.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\FieldOfStudy.cs">
+    <Compile Include="Entities\File.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\File.cs">
+    <Compile Include="Entities\Group.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\HeznekServiceEntities.Context.cs">
@@ -185,41 +193,41 @@
     <Compile Include="Entities\Instance.cs">
       <DependentUpon>TokenServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\loginAndPermission.cs">
+    <Compile Include="Entities\Login_Permissions.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Message.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Organization_Frames_HighSchool.cs">
+      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Role.cs">
       <DependentUpon>TokenServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Scolarship.cs">
+    <Compile Include="Entities\Scholarship.cs">
+      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Scholarship_Student_Bank.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Service.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\sp_helpdiagrams_Result.cs">
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Status.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\StudentScolarship.cs">
+    <Compile Include="Entities\Students_Scholarship.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\StudentVolunteer.cs">
+    <Compile Include="Entities\Student_Volunteer.cs">
+      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Study_Field.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Subscriber.cs">
       <DependentUpon>TokenServiceEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\sysdiagram.cs">
-      <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\TokenServiceEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -239,10 +247,10 @@
     <Compile Include="Entities\User.cs">
       <DependentUpon>TokenServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\UserProfile.cs">
+    <Compile Include="Entities\UserType.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\UserType.cs">
+    <Compile Include="Entities\User_Profile.cs">
       <DependentUpon>HeznekServiceEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -250,26 +258,31 @@
     </Compile>
     <Compile Include="Interfaces\IScholarshipRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="Models\ScolarshipModel.cs" />
+    <Compile Include="Models\AcademicInstituteModel.cs" />
+    <Compile Include="Models\BankModel.cs" />
+    <Compile Include="Models\CityModel.cs" />
+    <Compile Include="Models\ScholarshipModel.cs" />
+    <Compile Include="Models\StudentVolunteerModel.cs" />
+    <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ScholarshipRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Utils\UserClaimsUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Entities\TokenServiceEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TokenServiceEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Entities\TokenServiceEntities.edmx.diagram">
-      <DependentUpon>TokenServiceEntities.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Entities\HeznekServiceEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HeznekServiceEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Entities\HeznekServiceEntities.edmx.diagram">
       <DependentUpon>HeznekServiceEntities.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Entities\TokenServiceEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TokenServiceEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entities\TokenServiceEntities.edmx.diagram">
+      <DependentUpon>TokenServiceEntities.edmx</DependentUpon>
     </Content>
     <None Include="packages.config">
       <SubType>Designer</SubType>

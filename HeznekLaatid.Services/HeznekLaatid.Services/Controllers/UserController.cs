@@ -58,7 +58,7 @@ namespace HeznekLaatid.Services.Controllers
 
         [HttpPatch]
         [Route("api/profile")]
-        public async Task<IHttpActionResult> UpdateUserProfile([FromBody] UserProfile profile)
+        public async Task<IHttpActionResult> UpdateUserProfile([FromBody] User_Profile profile)
         {
             if (string.IsNullOrEmpty(profile.id) || string.IsNullOrWhiteSpace(profile.id))
             {

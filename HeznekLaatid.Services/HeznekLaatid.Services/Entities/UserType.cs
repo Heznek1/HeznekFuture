@@ -17,13 +17,16 @@ namespace HeznekLaatid.Services.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserType()
         {
-            this.loginAndPermissions = new HashSet<loginAndPermission>();
+            this.Login_Permissions = new HashSet<Login_Permissions>();
+            this.Messages = new HashSet<Message>();
         }
     
         public int numOfType { get; set; }
         public string userType1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<loginAndPermission> loginAndPermissions { get; set; }
+        public virtual ICollection<Login_Permissions> Login_Permissions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Messages { get; set; }
     }
 }

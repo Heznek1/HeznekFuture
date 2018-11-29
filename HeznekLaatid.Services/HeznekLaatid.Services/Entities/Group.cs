@@ -12,16 +12,18 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentVolunteer
+    public partial class Group
     {
-        public string id { get; set; }
-        public int ScolarshipSn { get; set; }
-        public System.DateTime dateOfVolunteer { get; set; }
-        public System.DateTime startHour { get; set; }
-        public System.DateTime finishHour { get; set; }
-        public string semester { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Group()
+        {
+            this.Events = new HashSet<Event>();
+        }
     
-        public virtual Scolarship Scolarship { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        public int sn { get; set; }
+        public string group_name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

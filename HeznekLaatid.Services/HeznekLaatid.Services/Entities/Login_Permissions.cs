@@ -10,13 +10,15 @@
 namespace HeznekLaatid.Services.Entities
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagrams_Result
+    public partial class Login_Permissions
     {
-        public string Database { get; set; }
-        public string Name { get; set; }
-        public int ID { get; set; }
-        public string Owner { get; set; }
-        public int OwnerID { get; set; }
+        public string id { get; set; }
+        public string password { get; set; }
+        public int userType { get; set; }
+    
+        public virtual UserType UserType1 { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }

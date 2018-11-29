@@ -12,20 +12,18 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class AcademicInstitution
+    public partial class Organization_Frames_HighSchool
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AcademicInstitution()
+        public Organization_Frames_HighSchool()
         {
-            this.UserProfiles = new HashSet<UserProfile>();
+            this.Active_Candidate_Info = new HashSet<Active_Candidate_Info>();
         }
     
-        public int id { get; set; }
-        public string nameOfInstitut { get; set; }
-        public Nullable<int> placeOfInstitute { get; set; }
+        public int sn { get; set; }
+        public string name_of_frame { get; set; }
     
-        public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public virtual ICollection<Active_Candidate_Info> Active_Candidate_Info { get; set; }
     }
 }

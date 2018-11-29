@@ -12,24 +12,27 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Scolarship
+    public partial class Scholarship
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Scolarship()
+        public Scholarship()
         {
-            this.StudentScolarships = new HashSet<StudentScolarship>();
-            this.StudentVolunteers = new HashSet<StudentVolunteer>();
+            this.Deposits_scholarship = new HashSet<Deposits_scholarship>();
+            this.Student_Volunteer = new HashSet<Student_Volunteer>();
+            this.Students_Scholarship = new HashSet<Students_Scholarship>();
         }
     
-        public int id { get; set; }
-        public string ScolarshipName { get; set; }
-        public Nullable<int> budgetScolarship { get; set; }
+        public int sn { get; set; }
+        public string scholarshipName { get; set; }
+        public Nullable<int> budgetScholarship { get; set; }
         public string admission { get; set; }
         public string status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentScolarship> StudentScolarships { get; set; }
+        public virtual ICollection<Deposits_scholarship> Deposits_scholarship { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentVolunteer> StudentVolunteers { get; set; }
+        public virtual ICollection<Student_Volunteer> Student_Volunteer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Students_Scholarship> Students_Scholarship { get; set; }
     }
 }

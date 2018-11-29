@@ -4,43 +4,53 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9df761e5f9a343dc870f551ecab943f4" Name="Diagram1">
-        <EntityTypeShape EntityType="HeznekServiceDbModel.AcademicInstitution" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.Bank" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.City" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.ContactStudent" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.Event" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.FieldOfStudy" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.File" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.loginAndPermission" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.Message" Width="1.5" PointX="7.5" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.Scolarship" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.Service" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.Status" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.StudentScolarship" Width="1.5" PointX="10.5" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.StudentVolunteer" Width="1.5" PointX="10.5" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.UserProfile" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeznekServiceDbModel.UserType" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__AcademicI__place__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__UserProfi__acade__656C112C" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__UserProfi__BankN__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__UserProfi__cityN__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__ContactSt__idCan__59063A47" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__ContactSt__idStu__59FA5E80" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__UserProfi__study__693CA210" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__Files__idOfTheUp__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__loginAndP__userT__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__loginAndPerm__id__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__Messages__idReci__5DCAEF64" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__Messages__idSend__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__StudentScola__id__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__StudentVo__Scola__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__UserProfi__typeO__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__UserProfi__statu__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__StudentSc__user___619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.FK__StudentVolun__id__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="HeznekServiceDbModel.EventParticipants" ManuallyRouted="false" />
+      <Diagram DiagramId="c1cec9acd68b41a4ab4010771ab529f5" Name="Diagram1">
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Academic_Institut" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Active_Candidate_Info" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Bank" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.City" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Contact_Candidate" Width="1.5" PointX="7.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Deposits_scholarship" Width="1.5" PointX="10.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Event" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.File" Width="1.5" PointX="7.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Group" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Login_Permissions" Width="1.5" PointX="10.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Message" Width="1.5" PointX="10.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Organization_Frames_HighSchool" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Scholarship" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Scholarship_Student_Bank" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Service" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Status" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Student_Volunteer" Width="1.5" PointX="13.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Students_Scholarship" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.Study_Field" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.User_Profile" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeznekServiceDbModel.UserType" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Academic___place__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__User_Prof__acade__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Active_Ca__idCan__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Active_Ca__parti__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Scholarsh__bank___6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__User_Prof__cityN__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Contact_C__idCan__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Contact_C__idSch__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Deposits___idSch__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Deposits___schol__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__event__typeOfPar__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__File__idOfTheUpl__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Login_Per__userT__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Login_Permis__id__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Message__idSende__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Message__send_to__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Student_V__schol__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Students_Sch__sn__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Scholarsh__idSch__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__User_Prof__typeO__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__User_Prof__statu__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Student_Volu__id__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__Students_Sch__id__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.FK__User_Prof__study__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="HeznekServiceDbModel.Participant_Event" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

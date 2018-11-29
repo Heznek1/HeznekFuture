@@ -12,26 +12,18 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Event
+    public partial class Study_Field
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Event()
+        public Study_Field()
         {
             this.User_Profile = new HashSet<User_Profile>();
         }
     
         public int sn { get; set; }
-        public string nameEvent { get; set; }
-        public string subjectEvent { get; set; }
-        public Nullable<System.DateTime> eventDate { get; set; }
-        public Nullable<System.TimeSpan> eventHour { get; set; }
-        public string eventLocation { get; set; }
-        public int typeOfParticipants { get; set; }
-        public Nullable<int> numParticipantsExpected { get; set; }
-        public Nullable<int> numOfActualParticipants { get; set; }
-        public Nullable<int> participant_sn { get; set; }
+        public string field { get; set; }
+        public string nameOfDegree { get; set; }
     
-        public virtual Group Group { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_Profile> User_Profile { get; set; }
     }

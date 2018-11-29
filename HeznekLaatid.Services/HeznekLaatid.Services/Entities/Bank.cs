@@ -17,13 +17,13 @@ namespace HeznekLaatid.Services.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Bank()
         {
-            this.UserProfiles = new HashSet<UserProfile>();
+            this.Scholarship_Student_Bank = new HashSet<Scholarship_Student_Bank>();
         }
     
-        public int id { get; set; }
+        public int sn { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public virtual ICollection<Scholarship_Student_Bank> Scholarship_Student_Bank { get; set; }
     }
 }

@@ -10,10 +10,16 @@
 namespace HeznekLaatid.Services.Entities
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class Scholarship_Student_Bank
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string idScholar { get; set; }
+        public int bank_name { get; set; }
+        public int branch_number { get; set; }
+        public int account_number { get; set; }
+    
+        public virtual Bank Bank { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }

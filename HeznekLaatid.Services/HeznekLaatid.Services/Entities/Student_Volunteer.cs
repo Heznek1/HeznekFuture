@@ -12,12 +12,16 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Student_Volunteer
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string id { get; set; }
+        public int scholarshipSn { get; set; }
+        public System.DateTime dateOfVolunteer { get; set; }
+        public System.DateTime startHour { get; set; }
+        public System.DateTime finishHour { get; set; }
+        public string semester { get; set; }
+    
+        public virtual Scholarship Scholarship { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }

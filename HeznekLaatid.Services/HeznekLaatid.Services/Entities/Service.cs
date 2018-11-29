@@ -17,14 +17,14 @@ namespace HeznekLaatid.Services.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Service()
         {
-            this.UserProfiles = new HashSet<UserProfile>();
+            this.User_Profile = new HashSet<User_Profile>();
         }
     
-        public int id { get; set; }
+        public int sn { get; set; }
         public string typeOfService { get; set; }
         public string longOfService { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public virtual ICollection<User_Profile> User_Profile { get; set; }
     }
 }

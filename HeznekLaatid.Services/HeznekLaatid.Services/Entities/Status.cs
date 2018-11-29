@@ -17,7 +17,7 @@ namespace HeznekLaatid.Services.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Status()
         {
-            this.UserProfiles = new HashSet<UserProfile>();
+            this.User_Profile = new HashSet<User_Profile>();
         }
     
         public int numOfStatus { get; set; }
@@ -25,6 +25,6 @@ namespace HeznekLaatid.Services.Entities
         public string secondaryStatusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
+        public virtual ICollection<User_Profile> User_Profile { get; set; }
     }
 }

@@ -18,6 +18,6 @@ namespace HeznekLaatid.Services.Entities
         public string idOfTheUploader { get; set; }
         public string fileLocation { get; set; }
     
-        public virtual UserProfile UserProfile { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }
