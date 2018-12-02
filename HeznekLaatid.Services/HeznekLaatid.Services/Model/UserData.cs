@@ -62,14 +62,14 @@ namespace HeznekLaatid.Services.Model
         /// <Summary>
         /// give all chosen users in the table that are from a specific city
         /// </Summary>
-        public static List<User_Profile> GetAllChosenUsersFromSpecificCity(List<User_Profile> usersList, String city)
+        public static ArrayList GetAllChosenUsersFromSpecificCity(ArrayList usersList, String city)
         {
             //get the serial number of the specific city
             int sn = ForeignKeys.GetCityNumberByName(city);
-            List<User_Profile> users = usersList;
+            ArrayList users = usersList;
             ArrayList usersAL = new ArrayList();
 
-            foreach (var user in users)
+            foreach (User_Profile user in users)
             {
                 if (user.cityNumber == sn)
                 {
@@ -77,7 +77,7 @@ namespace HeznekLaatid.Services.Model
                 }
             }
 
-            return users;
+            return usersAL;
 
         }
 
@@ -419,7 +419,7 @@ namespace HeznekLaatid.Services.Model
                         db.SaveChanges();                       
                     }
 
-                    if (user.status == 5)//if he is a candidate so add him to another table
+                    if (user.status == 5)//if he is active candidate so add him to another table
                     {
                         AddUserToActiveCandidate(user.id);
                     }

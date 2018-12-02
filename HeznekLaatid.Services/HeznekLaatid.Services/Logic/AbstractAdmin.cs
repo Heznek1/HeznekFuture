@@ -141,17 +141,44 @@ namespace HeznekLaatid.Services.Logic
         protected ArrayList GetUsersByGender_ActiveCadidates(string gender)
         {
             List<Active_Candidate_Info> users = UserData.GetCandidatesGenralDetails();
-            return UserData.GetAllChosenUsersFromTheSameGender(gender, users);
+            ArrayList usersArr = new ArrayList();
+
+            foreach (var user in users)
+            {
+                usersArr.Add(ForeignKeys.GetUserConnectedByID(user.idCandidate));
+            }
+            return UserData.GetAllChosenUsersFromTheSameGender(gender,usersArr);
         }
 
         protected ArrayList GetUsersByGender_UnActiveCadidates_continue_treatment(string gender)
         {
             ArrayList users = UserData.GetAllScholarshipsStudents();
             return UserData.GetAllChosenUsersFromTheSameGender(gender, users);
-
         }
 
+        protected ArrayList GetUsersByAverege_Students(float average)
+        {
+            return UserData.GetStudentsHigerAverege(average);
+        }
 
+        protected ArrayList GetUsersByFinishYear_Students(int year)
+        {
+            return UserData.GetAllStudentsWithSameFinishYear(year);
+        }
+
+        protected ArrayList GetUsersFromSameCity_Students(string city)
+        {
+            ArrayList users = UserData.GetAllScholarshipsStudents();
+           
+            return UserData.GetAllChosenUsersFromSpecificCity(users, city);
+        }
+
+        protected ArrayList GetUsersFromSameCity_ActiveCandidates(string city)
+        {
+            ArrayList users = UserData.GetUsersByStatus(5);
+
+            return UserData.GetAllChosenUsersFromSpecificCity(users, city);
+        }
 
 
     }
