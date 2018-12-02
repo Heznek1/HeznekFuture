@@ -12,12 +12,18 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class files
+    public partial class Groups
     {
-        public string nameOfFile { get; set; }
-        public string idOfTheUploader { get; set; }
-        public string fileLocation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Groups()
+        {
+            this.Event = new HashSet<Event>();
+        }
     
-        public virtual userTbl userTbl { get; set; }
+        public int sn { get; set; }
+        public string group_name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Event> Event { get; set; }
     }
 }

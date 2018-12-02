@@ -1,0 +1,1751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HeznekDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Academic_Institut">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameOfInstitut" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="placeOfInstitute" Type="int" />
+        </EntityType>
+        <EntityType Name="Active_Candidate_Info">
+          <Key>
+            <PropertyRef Name="idCandidate" />
+          </Key>
+          <Property Name="idCandidate" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="psychometric_grade" Type="int" />
+          <Property Name="worthy_of_advancement" Type="int" />
+          <Property Name="worthy_of_advancement_grade" Type="int" />
+          <Property Name="participation_heznek_highSchool" Type="int" />
+          <Property Name="highSchool_participation" Type="nvarchar(max)" />
+          <Property Name="diagnosis_learning_disabilities" Type="int" />
+          <Property Name="reason_for_request" Type="nvarchar(max)" />
+          <Property Name="general_life_story" Type="nvarchar(max)" />
+          <Property Name="health_problems" Type="int" />
+          <Property Name="health_problems_deatails" Type="nvarchar(max)" />
+          <Property Name="financial_difficulties" Type="int" />
+          <Property Name="financial_difficulties_details" Type="nvarchar(max)" />
+          <Property Name="family_issues" Type="int" />
+          <Property Name="family_issues_details" Type="nvarchar(max)" />
+          <Property Name="average_wage_father" Type="int" />
+          <Property Name="average_wage_mother" Type="int" />
+          <Property Name="disabilty_parents" Type="int" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cityName" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact_Candidate">
+          <Key>
+            <PropertyRef Name="idScholar" />
+            <PropertyRef Name="idCandidate" />
+            <PropertyRef Name="dateOfCall" />
+          </Key>
+          <Property Name="idScholar" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="idCandidate" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="dateOfCall" Type="date" Nullable="false" />
+          <Property Name="study_funding" Type="nvarchar(max)" />
+          <Property Name="comments" Type="nvarchar(max)" />
+          <Property Name="return_date" Type="date" />
+        </EntityType>
+        <EntityType Name="Deposits_Scholarship">
+          <Key>
+            <PropertyRef Name="idScholar" />
+            <PropertyRef Name="scholarship_sn" />
+            <PropertyRef Name="deposite_month" />
+          </Key>
+          <Property Name="idScholar" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="scholarship_sn" Type="int" Nullable="false" />
+          <Property Name="deposite_month" Type="date" Nullable="false" />
+          <Property Name="amount_of_deposit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" Nullable="false" />
+          <Property Name="nameEvent" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="subjectEvent" Type="nvarchar" MaxLength="300" />
+          <Property Name="eventDate" Type="date" />
+          <Property Name="eventHour" Type="time" Precision="7" />
+          <Property Name="eventLocation" Type="nvarchar" MaxLength="500" />
+          <Property Name="typeOfParticipants" Type="int" Nullable="false" />
+          <Property Name="numParticipantsExpected" Type="int" />
+          <Property Name="numOfActualParticipants" Type="int" />
+          <Property Name="participant_sn" Type="int" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="nameOfFile" />
+            <PropertyRef Name="idOfTheUploader" />
+          </Key>
+          <Property Name="nameOfFile" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="idOfTheUploader" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="fileLocation" Type="text" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" Nullable="false" />
+          <Property Name="group_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Login_Permissions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="10" />
+          <Property Name="userType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="idMessage" />
+            <PropertyRef Name="send_to_group" />
+          </Key>
+          <Property Name="idMessage" Type="int" Nullable="false" />
+          <Property Name="idSender" Type="char" MaxLength="9" />
+          <Property Name="message_subject" Type="nvarchar(max)" />
+          <Property Name="message_content" Type="nvarchar(max)" />
+          <Property Name="send_to_group" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization_Frames_HighSchool">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_of_frame" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participant_Event">
+          <Key>
+            <PropertyRef Name="sn" />
+            <PropertyRef Name="id_participant" />
+          </Key>
+          <Property Name="sn" Type="int" Nullable="false" />
+          <Property Name="id_participant" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="review" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Scholarship">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="scholarshipName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="budgetScholarship" Type="int" />
+          <Property Name="admission" Type="nvarchar" MaxLength="4000" />
+          <Property Name="status" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Scholarship_Student_Bank">
+          <Key>
+            <PropertyRef Name="idScholar" />
+          </Key>
+          <Property Name="idScholar" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="bank_name" Type="int" Nullable="false" />
+          <Property Name="branch_number" Type="int" Nullable="false" />
+          <Property Name="account_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeOfService" Type="nvarchar" MaxLength="200" />
+          <Property Name="longOfService" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="numOfStatus" />
+          </Key>
+          <Property Name="numOfStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="primaryStatusName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="secondaryStatusName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Student_Scholarship">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="id" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="sn" Type="int" Nullable="false" />
+          <Property Name="amountOfGivanScholarship" Type="int" />
+          <Property Name="numOfDeposits" Type="int" />
+          <Property Name="currentYear" Type="int" />
+          <Property Name="wasGivenInPast" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student_Volunteer">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="scholarshipSn" />
+            <PropertyRef Name="dateOfVolunteer" />
+          </Key>
+          <Property Name="id" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="scholarshipSn" Type="int" Nullable="false" />
+          <Property Name="dateOfVolunteer" Type="date" Nullable="false" />
+          <Property Name="startHour" Type="datetime" Nullable="false" />
+          <Property Name="finishHour" Type="datetime" Nullable="false" />
+          <Property Name="semester" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Study_Field">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="field" Type="nvarchar" MaxLength="4000" />
+          <Property Name="nameOfDegree" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User_Profile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateOfBirth" Type="date" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="yearsInTheProgram" Type="int" />
+          <Property Name="gender" Type="char" MaxLength="1" />
+          <Property Name="phone" Type="varchar" MaxLength="10" />
+          <Property Name="email" Type="varchar" MaxLength="4000" />
+          <Property Name="cityNameNumber" Type="int" />
+          <Property Name="address" Type="nvarchar" MaxLength="4000" />
+          <Property Name="numOfSiblings" Type="int" />
+          <Property Name="academicParents" Type="int" />
+          <Property Name="school" Type="nvarchar" MaxLength="4000" />
+          <Property Name="yearFinishSchool" Type="int" />
+          <Property Name="typeOfService" Type="int" Nullable="false" />
+          <Property Name="academicInstitution" Type="int" />
+          <Property Name="studyField" Type="int" />
+          <Property Name="startYear" Type="int" />
+          <Property Name="excpectedCompletionYear" Type="int" />
+          <Property Name="anotherScholarship" Type="varchar" MaxLength="3" />
+          <Property Name="educationFunding" Type="nvarchar" MaxLength="4000" />
+          <Property Name="typeOfDegree" Type="int" />
+          <Property Name="comments" Type="nvarchar(max)" />
+          <Property Name="roleInService" Type="nvarchar(max)" />
+          <Property Name="easeOfService" Type="int" />
+          <Property Name="residenceWhileStudiyng" Type="int" />
+          <Property Name="service_description" Type="nvarchar(max)" />
+          <Property Name="averageDegree" Type="float" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="numOfType" />
+          </Key>
+          <Property Name="numOfType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userType" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__academicI__place__5DCAEF64">
+          <End Role="City" Type="Self.City" MultiplicityName="0..1" />
+          <End Role="Academic_Institut" Type="Self.Academic_Institut" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Academic_Institut">
+              <PropertyRef Name="placeOfInstitute" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contactSc__idCan__5EBF139D">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Contact_Candidate" Type="Self.Contact_Candidate" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contact_Candidate">
+              <PropertyRef Name="idCandidate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contactSc__idSch__5FB337D6">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Contact_Candidate" Type="Self.Contact_Candidate" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contact_Candidate">
+              <PropertyRef Name="idScholar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__deposits___idSch__60A75C0F">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Deposits_Scholarship" Type="Self.Deposits_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deposits_Scholarship">
+              <PropertyRef Name="idScholar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__deposits___schol__619B8048">
+          <End Role="Scholarship" Type="Self.Scholarship" MultiplicityName="1" />
+          <End Role="Deposits_Scholarship" Type="Self.Deposits_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scholarship">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Deposits_Scholarship">
+              <PropertyRef Name="scholarship_sn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__event__typeOfPar__628FA481">
+          <End Role="Groups" Type="Self.Groups" MultiplicityName="1" />
+          <End Role="Event" Type="Self.Event" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="typeOfParticipants" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__files__idOfTheUp__6477ECF3">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="File" Type="Self.File" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="idOfTheUploader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__generalDe__idCan__656C112C">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Active_Candidate_Info" Type="Self.Active_Candidate_Info" MultiplicityName="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Active_Candidate_Info">
+              <PropertyRef Name="idCandidate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__generalDe__parti__66603565">
+          <End Role="Organization_Frames_HighSchool" Type="Self.Organization_Frames_HighSchool" MultiplicityName="0..1" />
+          <End Role="Active_Candidate_Info" Type="Self.Active_Candidate_Info" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization_Frames_HighSchool">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Active_Candidate_Info">
+              <PropertyRef Name="participation_heznek_highSchool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__loginAndP__userT__6754599E">
+          <End Role="UserType" Type="Self.UserType" MultiplicityName="1" />
+          <End Role="Login_Permissions" Type="Self.Login_Permissions" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="numOfType" />
+            </Principal>
+            <Dependent Role="Login_Permissions">
+              <PropertyRef Name="userType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__loginAndPerm__id__68487DD7">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Login_Permissions" Type="Self.Login_Permissions" MultiplicityName="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Login_Permissions">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__idSende__693CA210">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="0..1" />
+          <End Role="Message" Type="Self.Message" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idSender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__send_to__6A30C649">
+          <End Role="UserType" Type="Self.UserType" MultiplicityName="1" />
+          <End Role="Message" Type="Self.Message" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="numOfType" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="send_to_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__scholar_b__bank___6C190EBB">
+          <End Role="Bank" Type="Self.Bank" MultiplicityName="1" />
+          <End Role="Scholarship_Student_Bank" Type="Self.Scholarship_Student_Bank" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Scholarship_Student_Bank">
+              <PropertyRef Name="bank_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__scholar_b__idSch__6D0D32F4">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Scholarship_Student_Bank" Type="Self.Scholarship_Student_Bank" MultiplicityName="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Scholarship_Student_Bank">
+              <PropertyRef Name="idScholar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentSchol__id__6E01572D">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Student_Scholarship" Type="Self.Student_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Student_Scholarship">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentSchol__sn__6EF57B66">
+          <End Role="Scholarship" Type="Self.Scholarship" MultiplicityName="1" />
+          <End Role="Student_Scholarship" Type="Self.Student_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scholarship">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Student_Scholarship">
+              <PropertyRef Name="sn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentVo__schol__6FE99F9F">
+          <End Role="Scholarship" Type="Self.Scholarship" MultiplicityName="1" />
+          <End Role="Student_Volunteer" Type="Self.Student_Volunteer" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scholarship">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Student_Volunteer">
+              <PropertyRef Name="scholarshipSn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentVolun__id__70DDC3D8">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Student_Volunteer" Type="Self.Student_Volunteer" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Student_Volunteer">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__academi__71D1E811">
+          <End Role="Academic_Institut" Type="Self.Academic_Institut" MultiplicityName="0..1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academic_Institut">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="academicInstitution" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__cityNameNum__72C60C4A">
+          <End Role="City" Type="Self.City" MultiplicityName="0..1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="cityNameNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__status__73BA3083">
+          <End Role="Status" Type="Self.Status" MultiplicityName="1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="numOfStatus" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__studyFi__74AE54BC">
+          <End Role="Study_Field" Type="Self.Study_Field" MultiplicityName="0..1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Study_Field">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="studyField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__typeOfS__75A278F5">
+          <End Role="Service" Type="Self.Service" MultiplicityName="1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="typeOfService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_Event_Participant_Event">
+          <End Role="Event" Type="Self.Event" MultiplicityName="1" />
+          <End Role="Participant_Event" Type="Self.Participant_Event" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Participant_Event">
+              <PropertyRef Name="sn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_Event_User_Profile">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Participant_Event" Type="Self.Participant_Event" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participant_Event">
+              <PropertyRef Name="id_participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HeznekDBModelStoreContainer">
+          <EntitySet Name="Academic_Institut" EntityType="Self.Academic_Institut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Active_Candidate_Info" EntityType="Self.Active_Candidate_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact_Candidate" EntityType="Self.Contact_Candidate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deposits_Scholarship" EntityType="Self.Deposits_Scholarship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File" EntityType="Self.File" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login_Permissions" EntityType="Self.Login_Permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization_Frames_HighSchool" EntityType="Self.Organization_Frames_HighSchool" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participant_Event" EntityType="Self.Participant_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scholarship" EntityType="Self.Scholarship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scholarship_Student_Bank" EntityType="Self.Scholarship_Student_Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Scholarship" EntityType="Self.Student_Scholarship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Volunteer" EntityType="Self.Student_Volunteer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Study_Field" EntityType="Self.Study_Field" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Profile" EntityType="Self.User_Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__academicI__place__5DCAEF64" Association="Self.FK__academicI__place__5DCAEF64">
+            <End Role="City" EntitySet="City" />
+            <End Role="Academic_Institut" EntitySet="Academic_Institut" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contactSc__idCan__5EBF139D" Association="Self.FK__contactSc__idCan__5EBF139D">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Contact_Candidate" EntitySet="Contact_Candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contactSc__idSch__5FB337D6" Association="Self.FK__contactSc__idSch__5FB337D6">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Contact_Candidate" EntitySet="Contact_Candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__deposits___idSch__60A75C0F" Association="Self.FK__deposits___idSch__60A75C0F">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Deposits_Scholarship" EntitySet="Deposits_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__deposits___schol__619B8048" Association="Self.FK__deposits___schol__619B8048">
+            <End Role="Scholarship" EntitySet="Scholarship" />
+            <End Role="Deposits_Scholarship" EntitySet="Deposits_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__event__typeOfPar__628FA481" Association="Self.FK__event__typeOfPar__628FA481">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__files__idOfTheUp__6477ECF3" Association="Self.FK__files__idOfTheUp__6477ECF3">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="File" EntitySet="File" />
+          </AssociationSet>
+          <AssociationSet Name="FK__generalDe__idCan__656C112C" Association="Self.FK__generalDe__idCan__656C112C">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Active_Candidate_Info" EntitySet="Active_Candidate_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__generalDe__parti__66603565" Association="Self.FK__generalDe__parti__66603565">
+            <End Role="Organization_Frames_HighSchool" EntitySet="Organization_Frames_HighSchool" />
+            <End Role="Active_Candidate_Info" EntitySet="Active_Candidate_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__loginAndP__userT__6754599E" Association="Self.FK__loginAndP__userT__6754599E">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Login_Permissions" EntitySet="Login_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__loginAndPerm__id__68487DD7" Association="Self.FK__loginAndPerm__id__68487DD7">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Login_Permissions" EntitySet="Login_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__idSende__693CA210" Association="Self.FK__message__idSende__693CA210">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__send_to__6A30C649" Association="Self.FK__message__send_to__6A30C649">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__scholar_b__bank___6C190EBB" Association="Self.FK__scholar_b__bank___6C190EBB">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Scholarship_Student_Bank" EntitySet="Scholarship_Student_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__scholar_b__idSch__6D0D32F4" Association="Self.FK__scholar_b__idSch__6D0D32F4">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Scholarship_Student_Bank" EntitySet="Scholarship_Student_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentSchol__id__6E01572D" Association="Self.FK__studentSchol__id__6E01572D">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Student_Scholarship" EntitySet="Student_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentSchol__sn__6EF57B66" Association="Self.FK__studentSchol__sn__6EF57B66">
+            <End Role="Scholarship" EntitySet="Scholarship" />
+            <End Role="Student_Scholarship" EntitySet="Student_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentVo__schol__6FE99F9F" Association="Self.FK__studentVo__schol__6FE99F9F">
+            <End Role="Scholarship" EntitySet="Scholarship" />
+            <End Role="Student_Volunteer" EntitySet="Student_Volunteer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentVolun__id__70DDC3D8" Association="Self.FK__studentVolun__id__70DDC3D8">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Student_Volunteer" EntitySet="Student_Volunteer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__academi__71D1E811" Association="Self.FK__userTbl__academi__71D1E811">
+            <End Role="Academic_Institut" EntitySet="Academic_Institut" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__cityNameNum__72C60C4A" Association="Self.FK__userTbl__cityNameNum__72C60C4A">
+            <End Role="City" EntitySet="City" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__status__73BA3083" Association="Self.FK__userTbl__status__73BA3083">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__studyFi__74AE54BC" Association="Self.FK__userTbl__studyFi__74AE54BC">
+            <End Role="Study_Field" EntitySet="Study_Field" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__typeOfS__75A278F5" Association="Self.FK__userTbl__typeOfS__75A278F5">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_Event_Participant_Event" Association="Self.FK_Participant_Event_Participant_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Participant_Event" EntitySet="Participant_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_Event_User_Profile" Association="Self.FK_Participant_Event_User_Profile">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Participant_Event" EntitySet="Participant_Event" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HeznekDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Academic_Institut">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameOfInstitut" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="placeOfInstitute" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="Self.FK__academicI__place__5DCAEF64" FromRole="Academic_Institut" ToRole="City" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__userTbl__academi__71D1E811" FromRole="Academic_Institut" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Active_Candidate_Info">
+          <Key>
+            <PropertyRef Name="idCandidate" />
+          </Key>
+          <Property Name="idCandidate" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="psychometric_grade" Type="Int32" />
+          <Property Name="worthy_of_advancement" Type="Int32" />
+          <Property Name="worthy_of_advancement_grade" Type="Int32" />
+          <Property Name="participation_heznek_highSchool" Type="Int32" />
+          <Property Name="highSchool_participation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diagnosis_learning_disabilities" Type="Int32" />
+          <Property Name="reason_for_request" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="general_life_story" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="health_problems" Type="Int32" />
+          <Property Name="health_problems_deatails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="financial_difficulties" Type="Int32" />
+          <Property Name="financial_difficulties_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="family_issues" Type="Int32" />
+          <Property Name="family_issues_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="average_wage_father" Type="Int32" />
+          <Property Name="average_wage_mother" Type="Int32" />
+          <Property Name="disabilty_parents" Type="Int32" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__generalDe__idCan__656C112C" FromRole="Active_Candidate_Info" ToRole="User_Profile" />
+          <NavigationProperty Name="Organization_Frames_HighSchool" Relationship="Self.FK__generalDe__parti__66603565" FromRole="Active_Candidate_Info" ToRole="Organization_Frames_HighSchool" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Scholarship_Student_Bank" Relationship="Self.FK__scholar_b__bank___6C190EBB" FromRole="Bank" ToRole="Scholarship_Student_Bank" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cityName1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Academic_Institut" Relationship="Self.FK__academicI__place__5DCAEF64" FromRole="City" ToRole="Academic_Institut" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__userTbl__cityNameNum__72C60C4A" FromRole="City" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Contact_Candidate">
+          <Key>
+            <PropertyRef Name="idScholar" />
+            <PropertyRef Name="idCandidate" />
+            <PropertyRef Name="dateOfCall" />
+          </Key>
+          <Property Name="idScholar" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idCandidate" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dateOfCall" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="study_funding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="return_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__contactSc__idCan__5EBF139D" FromRole="Contact_Candidate" ToRole="User_Profile" />
+          <NavigationProperty Name="User_Profile1" Relationship="Self.FK__contactSc__idSch__5FB337D6" FromRole="Contact_Candidate" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Deposits_Scholarship">
+          <Key>
+            <PropertyRef Name="idScholar" />
+            <PropertyRef Name="scholarship_sn" />
+            <PropertyRef Name="deposite_month" />
+          </Key>
+          <Property Name="idScholar" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="scholarship_sn" Type="Int32" Nullable="false" />
+          <Property Name="deposite_month" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="amount_of_deposit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__deposits___idSch__60A75C0F" FromRole="Deposits_Scholarship" ToRole="User_Profile" />
+          <NavigationProperty Name="Scholarship" Relationship="Self.FK__deposits___schol__619B8048" FromRole="Deposits_Scholarship" ToRole="Scholarship" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" />
+          <Property Name="nameEvent" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subjectEvent" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+          <Property Name="eventHour" Type="Time" Precision="7" />
+          <Property Name="eventLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="typeOfParticipants" Type="Int32" Nullable="false" />
+          <Property Name="numParticipantsExpected" Type="Int32" />
+          <Property Name="numOfActualParticipants" Type="Int32" />
+          <Property Name="participant_sn" Type="Int32" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK__event__typeOfPar__628FA481" FromRole="Event" ToRole="Groups" />
+          <NavigationProperty Name="Participant_Event" Relationship="Self.FK_Participant_Event_Participant_Event" FromRole="Event" ToRole="Participant_Event" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="nameOfFile" />
+            <PropertyRef Name="idOfTheUploader" />
+          </Key>
+          <Property Name="nameOfFile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idOfTheUploader" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="fileLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__files__idOfTheUp__6477ECF3" FromRole="File" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" />
+          <Property Name="group_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__event__typeOfPar__628FA481" FromRole="Groups" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Login_Permissions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="userType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserType1" Relationship="Self.FK__loginAndP__userT__6754599E" FromRole="Login_Permissions" ToRole="UserType" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__loginAndPerm__id__68487DD7" FromRole="Login_Permissions" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="idMessage" />
+            <PropertyRef Name="send_to_group" />
+          </Key>
+          <Property Name="idMessage" Type="Int32" Nullable="false" />
+          <Property Name="idSender" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="message_subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="message_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="send_to_group" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__message__idSende__693CA210" FromRole="Message" ToRole="User_Profile" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK__message__send_to__6A30C649" FromRole="Message" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="Organization_Frames_HighSchool">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_of_frame" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Active_Candidate_Info" Relationship="Self.FK__generalDe__parti__66603565" FromRole="Organization_Frames_HighSchool" ToRole="Active_Candidate_Info" />
+        </EntityType>
+        <EntityType Name="Participant_Event">
+          <Key>
+            <PropertyRef Name="sn" />
+            <PropertyRef Name="id_participant" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" />
+          <Property Name="id_participant" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="review" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Participant_Event_Participant_Event" FromRole="Participant_Event" ToRole="Event" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK_Participant_Event_User_Profile" FromRole="Participant_Event" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Scholarship">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="scholarshipName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="budgetScholarship" Type="Int32" />
+          <Property Name="admission" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Deposits_Scholarship" Relationship="Self.FK__deposits___schol__619B8048" FromRole="Scholarship" ToRole="Deposits_Scholarship" />
+          <NavigationProperty Name="Student_Scholarship" Relationship="Self.FK__studentSchol__sn__6EF57B66" FromRole="Scholarship" ToRole="Student_Scholarship" />
+          <NavigationProperty Name="Student_Volunteer" Relationship="Self.FK__studentVo__schol__6FE99F9F" FromRole="Scholarship" ToRole="Student_Volunteer" />
+        </EntityType>
+        <EntityType Name="Scholarship_Student_Bank">
+          <Key>
+            <PropertyRef Name="idScholar" />
+          </Key>
+          <Property Name="idScholar" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="bank_name" Type="Int32" Nullable="false" />
+          <Property Name="branch_number" Type="Int32" Nullable="false" />
+          <Property Name="account_number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bank" Relationship="Self.FK__scholar_b__bank___6C190EBB" FromRole="Scholarship_Student_Bank" ToRole="Bank" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__scholar_b__idSch__6D0D32F4" FromRole="Scholarship_Student_Bank" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeOfService" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="longOfService" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__userTbl__typeOfS__75A278F5" FromRole="Service" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="numOfStatus" />
+          </Key>
+          <Property Name="numOfStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="primaryStatusName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="secondaryStatusName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__userTbl__status__73BA3083" FromRole="Status" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Student_Scholarship">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="sn" Type="Int32" Nullable="false" />
+          <Property Name="amountOfGivanScholarship" Type="Int32" />
+          <Property Name="numOfDeposits" Type="Int32" />
+          <Property Name="currentYear" Type="Int32" />
+          <Property Name="wasGivenInPast" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Scholarship" Relationship="Self.FK__studentSchol__sn__6EF57B66" FromRole="Student_Scholarship" ToRole="Scholarship" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__studentSchol__id__6E01572D" FromRole="Student_Scholarship" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Student_Volunteer">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="scholarshipSn" />
+            <PropertyRef Name="dateOfVolunteer" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="scholarshipSn" Type="Int32" Nullable="false" />
+          <Property Name="dateOfVolunteer" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="startHour" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="finishHour" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="semester" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Scholarship" Relationship="Self.FK__studentVo__schol__6FE99F9F" FromRole="Student_Volunteer" ToRole="Scholarship" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__studentVolun__id__70DDC3D8" FromRole="Student_Volunteer" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="Study_Field">
+          <Key>
+            <PropertyRef Name="sn" />
+          </Key>
+          <Property Name="sn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="field" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="nameOfDegree" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_Profile" Relationship="Self.FK__userTbl__studyFi__74AE54BC" FromRole="Study_Field" ToRole="User_Profile" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User_Profile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="yearsInTheProgram" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="cityNameNumber" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="numOfSiblings" Type="Int32" />
+          <Property Name="academicParents" Type="Int32" />
+          <Property Name="school" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="yearFinishSchool" Type="Int32" />
+          <Property Name="typeOfService" Type="Int32" Nullable="false" />
+          <Property Name="academicInstitution" Type="Int32" />
+          <Property Name="studyField" Type="Int32" />
+          <Property Name="startYear" Type="Int32" />
+          <Property Name="excpectedCompletionYear" Type="Int32" />
+          <Property Name="anotherScholarship" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="educationFunding" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="typeOfDegree" Type="Int32" />
+          <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="roleInService" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="easeOfService" Type="Int32" />
+          <Property Name="residenceWhileStudiyng" Type="Int32" />
+          <Property Name="service_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="averageDegree" Type="Double" />
+          <NavigationProperty Name="Academic_Institut" Relationship="Self.FK__userTbl__academi__71D1E811" FromRole="User_Profile" ToRole="Academic_Institut" />
+          <NavigationProperty Name="Active_Candidate_Info" Relationship="Self.FK__generalDe__idCan__656C112C" FromRole="User_Profile" ToRole="Active_Candidate_Info" />
+          <NavigationProperty Name="City" Relationship="Self.FK__userTbl__cityNameNum__72C60C4A" FromRole="User_Profile" ToRole="City" />
+          <NavigationProperty Name="Contact_Candidate" Relationship="Self.FK__contactSc__idCan__5EBF139D" FromRole="User_Profile" ToRole="Contact_Candidate" />
+          <NavigationProperty Name="Contact_Candidate1" Relationship="Self.FK__contactSc__idSch__5FB337D6" FromRole="User_Profile" ToRole="Contact_Candidate" />
+          <NavigationProperty Name="Deposits_Scholarship" Relationship="Self.FK__deposits___idSch__60A75C0F" FromRole="User_Profile" ToRole="Deposits_Scholarship" />
+          <NavigationProperty Name="File" Relationship="Self.FK__files__idOfTheUp__6477ECF3" FromRole="User_Profile" ToRole="File" />
+          <NavigationProperty Name="Login_Permissions" Relationship="Self.FK__loginAndPerm__id__68487DD7" FromRole="User_Profile" ToRole="Login_Permissions" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__message__idSende__693CA210" FromRole="User_Profile" ToRole="Message" />
+          <NavigationProperty Name="Participant_Event" Relationship="Self.FK_Participant_Event_User_Profile" FromRole="User_Profile" ToRole="Participant_Event" />
+          <NavigationProperty Name="Scholarship_Student_Bank" Relationship="Self.FK__scholar_b__idSch__6D0D32F4" FromRole="User_Profile" ToRole="Scholarship_Student_Bank" />
+          <NavigationProperty Name="Service" Relationship="Self.FK__userTbl__typeOfS__75A278F5" FromRole="User_Profile" ToRole="Service" />
+          <NavigationProperty Name="Status1" Relationship="Self.FK__userTbl__status__73BA3083" FromRole="User_Profile" ToRole="Status" />
+          <NavigationProperty Name="Student_Scholarship" Relationship="Self.FK__studentSchol__id__6E01572D" FromRole="User_Profile" ToRole="Student_Scholarship" />
+          <NavigationProperty Name="Student_Volunteer" Relationship="Self.FK__studentVolun__id__70DDC3D8" FromRole="User_Profile" ToRole="Student_Volunteer" />
+          <NavigationProperty Name="Study_Field" Relationship="Self.FK__userTbl__studyFi__74AE54BC" FromRole="User_Profile" ToRole="Study_Field" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="numOfType" />
+          </Key>
+          <Property Name="numOfType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userType1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Login_Permissions" Relationship="Self.FK__loginAndP__userT__6754599E" FromRole="UserType" ToRole="Login_Permissions" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__message__send_to__6A30C649" FromRole="UserType" ToRole="Message" />
+        </EntityType>
+        <Association Name="FK__academicI__place__5DCAEF64">
+          <End Role="City" Type="Self.City" MultiplicityName="0..1" />
+          <End Role="Academic_Institut" Type="Self.Academic_Institut" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Academic_Institut">
+              <PropertyRef Name="placeOfInstitute" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__academi__71D1E811">
+          <End Role="Academic_Institut" Type="Self.Academic_Institut" MultiplicityName="0..1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academic_Institut">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="academicInstitution" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__generalDe__idCan__656C112C">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Active_Candidate_Info" Type="Self.Active_Candidate_Info" MultiplicityName="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Active_Candidate_Info">
+              <PropertyRef Name="idCandidate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__generalDe__parti__66603565">
+          <End Role="Organization_Frames_HighSchool" Type="Self.Organization_Frames_HighSchool" MultiplicityName="0..1" />
+          <End Role="Active_Candidate_Info" Type="Self.Active_Candidate_Info" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization_Frames_HighSchool">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Active_Candidate_Info">
+              <PropertyRef Name="participation_heznek_highSchool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__scholar_b__bank___6C190EBB">
+          <End Role="Bank" Type="Self.Bank" MultiplicityName="1" />
+          <End Role="Scholarship_Student_Bank" Type="Self.Scholarship_Student_Bank" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Scholarship_Student_Bank">
+              <PropertyRef Name="bank_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__cityNameNum__72C60C4A">
+          <End Role="City" Type="Self.City" MultiplicityName="0..1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="cityNameNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contactSc__idCan__5EBF139D">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Contact_Candidate" Type="Self.Contact_Candidate" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contact_Candidate">
+              <PropertyRef Name="idCandidate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contactSc__idSch__5FB337D6">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Contact_Candidate" Type="Self.Contact_Candidate" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contact_Candidate">
+              <PropertyRef Name="idScholar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__deposits___idSch__60A75C0F">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Deposits_Scholarship" Type="Self.Deposits_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deposits_Scholarship">
+              <PropertyRef Name="idScholar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__deposits___schol__619B8048">
+          <End Role="Scholarship" Type="Self.Scholarship" MultiplicityName="1" />
+          <End Role="Deposits_Scholarship" Type="Self.Deposits_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scholarship">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Deposits_Scholarship">
+              <PropertyRef Name="scholarship_sn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__event__typeOfPar__628FA481">
+          <End Role="Groups" Type="Self.Groups" MultiplicityName="1" />
+          <End Role="Event" Type="Self.Event" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="typeOfParticipants" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_Event_Participant_Event">
+          <End Role="Event" Type="Self.Event" MultiplicityName="1" />
+          <End Role="Participant_Event" Type="Self.Participant_Event" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Participant_Event">
+              <PropertyRef Name="sn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__files__idOfTheUp__6477ECF3">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="File" Type="Self.File" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="idOfTheUploader" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__loginAndP__userT__6754599E">
+          <End Role="UserType" Type="Self.UserType" MultiplicityName="1" />
+          <End Role="Login_Permissions" Type="Self.Login_Permissions" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="numOfType" />
+            </Principal>
+            <Dependent Role="Login_Permissions">
+              <PropertyRef Name="userType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__loginAndPerm__id__68487DD7">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Login_Permissions" Type="Self.Login_Permissions" MultiplicityName="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Login_Permissions">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__idSende__693CA210">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="0..1" />
+          <End Role="Message" Type="Self.Message" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idSender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__send_to__6A30C649">
+          <End Role="UserType" Type="Self.UserType" MultiplicityName="1" />
+          <End Role="Message" Type="Self.Message" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="numOfType" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="send_to_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_Event_User_Profile">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Participant_Event" Type="Self.Participant_Event" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participant_Event">
+              <PropertyRef Name="id_participant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentSchol__sn__6EF57B66">
+          <End Role="Scholarship" Type="Self.Scholarship" MultiplicityName="1" />
+          <End Role="Student_Scholarship" Type="Self.Student_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scholarship">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Student_Scholarship">
+              <PropertyRef Name="sn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentVo__schol__6FE99F9F">
+          <End Role="Scholarship" Type="Self.Scholarship" MultiplicityName="1" />
+          <End Role="Student_Volunteer" Type="Self.Student_Volunteer" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scholarship">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="Student_Volunteer">
+              <PropertyRef Name="scholarshipSn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__scholar_b__idSch__6D0D32F4">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Scholarship_Student_Bank" Type="Self.Scholarship_Student_Bank" MultiplicityName="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Scholarship_Student_Bank">
+              <PropertyRef Name="idScholar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__typeOfS__75A278F5">
+          <End Role="Service" Type="Self.Service" MultiplicityName="1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="typeOfService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__status__73BA3083">
+          <End Role="Status" Type="Self.Status" MultiplicityName="1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="numOfStatus" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentSchol__id__6E01572D">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Student_Scholarship" Type="Self.Student_Scholarship" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Student_Scholarship">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentVolun__id__70DDC3D8">
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="1" />
+          <End Role="Student_Volunteer" Type="Self.Student_Volunteer" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Profile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Student_Volunteer">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userTbl__studyFi__74AE54BC">
+          <End Role="Study_Field" Type="Self.Study_Field" MultiplicityName="0..1" />
+          <End Role="User_Profile" Type="Self.User_Profile" MultiplicityName="*" />
+          <ReferentialConstraint>
+            <Principal Role="Study_Field">
+              <PropertyRef Name="sn" />
+            </Principal>
+            <Dependent Role="User_Profile">
+              <PropertyRef Name="studyField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HeznekDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Academic_Institut" EntityType="Self.Academic_Institut" />
+          <EntitySet Name="Active_Candidate_Info" EntityType="Self.Active_Candidate_Info" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Contact_Candidate" EntityType="Self.Contact_Candidate" />
+          <EntitySet Name="Deposits_Scholarship" EntityType="Self.Deposits_Scholarship" />
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="File" EntityType="Self.File" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" />
+          <EntitySet Name="Login_Permissions" EntityType="Self.Login_Permissions" />
+          <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="Organization_Frames_HighSchool" EntityType="Self.Organization_Frames_HighSchool" />
+          <EntitySet Name="Participant_Event" EntityType="Self.Participant_Event" />
+          <EntitySet Name="Scholarship" EntityType="Self.Scholarship" />
+          <EntitySet Name="Scholarship_Student_Bank" EntityType="Self.Scholarship_Student_Bank" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Student_Scholarship" EntityType="Self.Student_Scholarship" />
+          <EntitySet Name="Student_Volunteer" EntityType="Self.Student_Volunteer" />
+          <EntitySet Name="Study_Field" EntityType="Self.Study_Field" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User_Profile" EntityType="Self.User_Profile" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" />
+          <AssociationSet Name="FK__academicI__place__5DCAEF64" Association="Self.FK__academicI__place__5DCAEF64">
+            <End Role="City" EntitySet="City" />
+            <End Role="Academic_Institut" EntitySet="Academic_Institut" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__academi__71D1E811" Association="Self.FK__userTbl__academi__71D1E811">
+            <End Role="Academic_Institut" EntitySet="Academic_Institut" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__generalDe__idCan__656C112C" Association="Self.FK__generalDe__idCan__656C112C">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Active_Candidate_Info" EntitySet="Active_Candidate_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__generalDe__parti__66603565" Association="Self.FK__generalDe__parti__66603565">
+            <End Role="Organization_Frames_HighSchool" EntitySet="Organization_Frames_HighSchool" />
+            <End Role="Active_Candidate_Info" EntitySet="Active_Candidate_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__scholar_b__bank___6C190EBB" Association="Self.FK__scholar_b__bank___6C190EBB">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Scholarship_Student_Bank" EntitySet="Scholarship_Student_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__cityNameNum__72C60C4A" Association="Self.FK__userTbl__cityNameNum__72C60C4A">
+            <End Role="City" EntitySet="City" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contactSc__idCan__5EBF139D" Association="Self.FK__contactSc__idCan__5EBF139D">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Contact_Candidate" EntitySet="Contact_Candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contactSc__idSch__5FB337D6" Association="Self.FK__contactSc__idSch__5FB337D6">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Contact_Candidate" EntitySet="Contact_Candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__deposits___idSch__60A75C0F" Association="Self.FK__deposits___idSch__60A75C0F">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Deposits_Scholarship" EntitySet="Deposits_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__deposits___schol__619B8048" Association="Self.FK__deposits___schol__619B8048">
+            <End Role="Scholarship" EntitySet="Scholarship" />
+            <End Role="Deposits_Scholarship" EntitySet="Deposits_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__event__typeOfPar__628FA481" Association="Self.FK__event__typeOfPar__628FA481">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_Event_Participant_Event" Association="Self.FK_Participant_Event_Participant_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Participant_Event" EntitySet="Participant_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__files__idOfTheUp__6477ECF3" Association="Self.FK__files__idOfTheUp__6477ECF3">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="File" EntitySet="File" />
+          </AssociationSet>
+          <AssociationSet Name="FK__loginAndP__userT__6754599E" Association="Self.FK__loginAndP__userT__6754599E">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Login_Permissions" EntitySet="Login_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__loginAndPerm__id__68487DD7" Association="Self.FK__loginAndPerm__id__68487DD7">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Login_Permissions" EntitySet="Login_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__idSende__693CA210" Association="Self.FK__message__idSende__693CA210">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__send_to__6A30C649" Association="Self.FK__message__send_to__6A30C649">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_Event_User_Profile" Association="Self.FK_Participant_Event_User_Profile">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Participant_Event" EntitySet="Participant_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentSchol__sn__6EF57B66" Association="Self.FK__studentSchol__sn__6EF57B66">
+            <End Role="Scholarship" EntitySet="Scholarship" />
+            <End Role="Student_Scholarship" EntitySet="Student_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentVo__schol__6FE99F9F" Association="Self.FK__studentVo__schol__6FE99F9F">
+            <End Role="Scholarship" EntitySet="Scholarship" />
+            <End Role="Student_Volunteer" EntitySet="Student_Volunteer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__scholar_b__idSch__6D0D32F4" Association="Self.FK__scholar_b__idSch__6D0D32F4">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Scholarship_Student_Bank" EntitySet="Scholarship_Student_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__typeOfS__75A278F5" Association="Self.FK__userTbl__typeOfS__75A278F5">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__status__73BA3083" Association="Self.FK__userTbl__status__73BA3083">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentSchol__id__6E01572D" Association="Self.FK__studentSchol__id__6E01572D">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Student_Scholarship" EntitySet="Student_Scholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentVolun__id__70DDC3D8" Association="Self.FK__studentVolun__id__70DDC3D8">
+            <End Role="User_Profile" EntitySet="User_Profile" />
+            <End Role="Student_Volunteer" EntitySet="Student_Volunteer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userTbl__studyFi__74AE54BC" Association="Self.FK__userTbl__studyFi__74AE54BC">
+            <End Role="Study_Field" EntitySet="Study_Field" />
+            <End Role="User_Profile" EntitySet="User_Profile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HeznekDBModelStoreContainer" CdmEntityContainer="HeznekDBEntities">
+          <EntitySetMapping Name="Academic_Institut">
+            <EntityTypeMapping TypeName="HeznekDBModel.Academic_Institut">
+              <MappingFragment StoreEntitySet="Academic_Institut">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="nameOfInstitut" ColumnName="nameOfInstitut" />
+                <ScalarProperty Name="placeOfInstitute" ColumnName="placeOfInstitute" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Active_Candidate_Info">
+            <EntityTypeMapping TypeName="HeznekDBModel.Active_Candidate_Info">
+              <MappingFragment StoreEntitySet="Active_Candidate_Info">
+                <ScalarProperty Name="idCandidate" ColumnName="idCandidate" />
+                <ScalarProperty Name="psychometric_grade" ColumnName="psychometric_grade" />
+                <ScalarProperty Name="worthy_of_advancement" ColumnName="worthy_of_advancement" />
+                <ScalarProperty Name="worthy_of_advancement_grade" ColumnName="worthy_of_advancement_grade" />
+                <ScalarProperty Name="participation_heznek_highSchool" ColumnName="participation_heznek_highSchool" />
+                <ScalarProperty Name="highSchool_participation" ColumnName="highSchool_participation" />
+                <ScalarProperty Name="diagnosis_learning_disabilities" ColumnName="diagnosis_learning_disabilities" />
+                <ScalarProperty Name="reason_for_request" ColumnName="reason_for_request" />
+                <ScalarProperty Name="general_life_story" ColumnName="general_life_story" />
+                <ScalarProperty Name="health_problems" ColumnName="health_problems" />
+                <ScalarProperty Name="health_problems_deatails" ColumnName="health_problems_deatails" />
+                <ScalarProperty Name="financial_difficulties" ColumnName="financial_difficulties" />
+                <ScalarProperty Name="financial_difficulties_details" ColumnName="financial_difficulties_details" />
+                <ScalarProperty Name="family_issues" ColumnName="family_issues" />
+                <ScalarProperty Name="family_issues_details" ColumnName="family_issues_details" />
+                <ScalarProperty Name="average_wage_father" ColumnName="average_wage_father" />
+                <ScalarProperty Name="average_wage_mother" ColumnName="average_wage_mother" />
+                <ScalarProperty Name="disabilty_parents" ColumnName="disabilty_parents" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bank">
+            <EntityTypeMapping TypeName="HeznekDBModel.Bank">
+              <MappingFragment StoreEntitySet="Bank">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="HeznekDBModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="cityName1" ColumnName="cityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact_Candidate">
+            <EntityTypeMapping TypeName="HeznekDBModel.Contact_Candidate">
+              <MappingFragment StoreEntitySet="Contact_Candidate">
+                <ScalarProperty Name="idScholar" ColumnName="idScholar" />
+                <ScalarProperty Name="idCandidate" ColumnName="idCandidate" />
+                <ScalarProperty Name="dateOfCall" ColumnName="dateOfCall" />
+                <ScalarProperty Name="study_funding" ColumnName="study_funding" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="return_date" ColumnName="return_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deposits_Scholarship">
+            <EntityTypeMapping TypeName="HeznekDBModel.Deposits_Scholarship">
+              <MappingFragment StoreEntitySet="Deposits_Scholarship">
+                <ScalarProperty Name="idScholar" ColumnName="idScholar" />
+                <ScalarProperty Name="scholarship_sn" ColumnName="scholarship_sn" />
+                <ScalarProperty Name="deposite_month" ColumnName="deposite_month" />
+                <ScalarProperty Name="amount_of_deposit" ColumnName="amount_of_deposit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="HeznekDBModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="nameEvent" ColumnName="nameEvent" />
+                <ScalarProperty Name="subjectEvent" ColumnName="subjectEvent" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventHour" ColumnName="eventHour" />
+                <ScalarProperty Name="eventLocation" ColumnName="eventLocation" />
+                <ScalarProperty Name="typeOfParticipants" ColumnName="typeOfParticipants" />
+                <ScalarProperty Name="numParticipantsExpected" ColumnName="numParticipantsExpected" />
+                <ScalarProperty Name="numOfActualParticipants" ColumnName="numOfActualParticipants" />
+                <ScalarProperty Name="participant_sn" ColumnName="participant_sn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="File">
+            <EntityTypeMapping TypeName="HeznekDBModel.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="nameOfFile" ColumnName="nameOfFile" />
+                <ScalarProperty Name="idOfTheUploader" ColumnName="idOfTheUploader" />
+                <ScalarProperty Name="fileLocation" ColumnName="fileLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="HeznekDBModel.Groups">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login_Permissions">
+            <EntityTypeMapping TypeName="HeznekDBModel.Login_Permissions">
+              <MappingFragment StoreEntitySet="Login_Permissions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="HeznekDBModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="idMessage" ColumnName="idMessage" />
+                <ScalarProperty Name="idSender" ColumnName="idSender" />
+                <ScalarProperty Name="message_subject" ColumnName="message_subject" />
+                <ScalarProperty Name="message_content" ColumnName="message_content" />
+                <ScalarProperty Name="send_to_group" ColumnName="send_to_group" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization_Frames_HighSchool">
+            <EntityTypeMapping TypeName="HeznekDBModel.Organization_Frames_HighSchool">
+              <MappingFragment StoreEntitySet="Organization_Frames_HighSchool">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="name_of_frame" ColumnName="name_of_frame" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participant_Event">
+            <EntityTypeMapping TypeName="HeznekDBModel.Participant_Event">
+              <MappingFragment StoreEntitySet="Participant_Event">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="id_participant" ColumnName="id_participant" />
+                <ScalarProperty Name="review" ColumnName="review" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scholarship">
+            <EntityTypeMapping TypeName="HeznekDBModel.Scholarship">
+              <MappingFragment StoreEntitySet="Scholarship">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="scholarshipName" ColumnName="scholarshipName" />
+                <ScalarProperty Name="budgetScholarship" ColumnName="budgetScholarship" />
+                <ScalarProperty Name="admission" ColumnName="admission" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scholarship_Student_Bank">
+            <EntityTypeMapping TypeName="HeznekDBModel.Scholarship_Student_Bank">
+              <MappingFragment StoreEntitySet="Scholarship_Student_Bank">
+                <ScalarProperty Name="idScholar" ColumnName="idScholar" />
+                <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+                <ScalarProperty Name="branch_number" ColumnName="branch_number" />
+                <ScalarProperty Name="account_number" ColumnName="account_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="HeznekDBModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="typeOfService" ColumnName="typeOfService" />
+                <ScalarProperty Name="longOfService" ColumnName="longOfService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="HeznekDBModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="numOfStatus" ColumnName="numOfStatus" />
+                <ScalarProperty Name="primaryStatusName" ColumnName="primaryStatusName" />
+                <ScalarProperty Name="secondaryStatusName" ColumnName="secondaryStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Scholarship">
+            <EntityTypeMapping TypeName="HeznekDBModel.Student_Scholarship">
+              <MappingFragment StoreEntitySet="Student_Scholarship">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="amountOfGivanScholarship" ColumnName="amountOfGivanScholarship" />
+                <ScalarProperty Name="numOfDeposits" ColumnName="numOfDeposits" />
+                <ScalarProperty Name="currentYear" ColumnName="currentYear" />
+                <ScalarProperty Name="wasGivenInPast" ColumnName="wasGivenInPast" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Volunteer">
+            <EntityTypeMapping TypeName="HeznekDBModel.Student_Volunteer">
+              <MappingFragment StoreEntitySet="Student_Volunteer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="scholarshipSn" ColumnName="scholarshipSn" />
+                <ScalarProperty Name="dateOfVolunteer" ColumnName="dateOfVolunteer" />
+                <ScalarProperty Name="startHour" ColumnName="startHour" />
+                <ScalarProperty Name="finishHour" ColumnName="finishHour" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Study_Field">
+            <EntityTypeMapping TypeName="HeznekDBModel.Study_Field">
+              <MappingFragment StoreEntitySet="Study_Field">
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="field" ColumnName="field" />
+                <ScalarProperty Name="nameOfDegree" ColumnName="nameOfDegree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HeznekDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Profile">
+            <EntityTypeMapping TypeName="HeznekDBModel.User_Profile">
+              <MappingFragment StoreEntitySet="User_Profile">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="yearsInTheProgram" ColumnName="yearsInTheProgram" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cityNameNumber" ColumnName="cityNameNumber" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="numOfSiblings" ColumnName="numOfSiblings" />
+                <ScalarProperty Name="academicParents" ColumnName="academicParents" />
+                <ScalarProperty Name="school" ColumnName="school" />
+                <ScalarProperty Name="yearFinishSchool" ColumnName="yearFinishSchool" />
+                <ScalarProperty Name="typeOfService" ColumnName="typeOfService" />
+                <ScalarProperty Name="academicInstitution" ColumnName="academicInstitution" />
+                <ScalarProperty Name="studyField" ColumnName="studyField" />
+                <ScalarProperty Name="startYear" ColumnName="startYear" />
+                <ScalarProperty Name="excpectedCompletionYear" ColumnName="excpectedCompletionYear" />
+                <ScalarProperty Name="anotherScholarship" ColumnName="anotherScholarship" />
+                <ScalarProperty Name="educationFunding" ColumnName="educationFunding" />
+                <ScalarProperty Name="typeOfDegree" ColumnName="typeOfDegree" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="roleInService" ColumnName="roleInService" />
+                <ScalarProperty Name="easeOfService" ColumnName="easeOfService" />
+                <ScalarProperty Name="residenceWhileStudiyng" ColumnName="residenceWhileStudiyng" />
+                <ScalarProperty Name="service_description" ColumnName="service_description" />
+                <ScalarProperty Name="averageDegree" ColumnName="averageDegree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserType">
+            <EntityTypeMapping TypeName="HeznekDBModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="numOfType" ColumnName="numOfType" />
+                <ScalarProperty Name="userType1" ColumnName="userType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

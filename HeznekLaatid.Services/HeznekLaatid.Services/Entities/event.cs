@@ -12,8 +12,14 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class @event
+    public partial class Event
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Event()
+        {
+            this.Participant_Event = new HashSet<Participant_Event>();
+        }
+    
         public int sn { get; set; }
         public string nameEvent { get; set; }
         public string subjectEvent { get; set; }
@@ -25,7 +31,8 @@ namespace HeznekLaatid.Services.Entities
         public Nullable<int> numOfActualParticipants { get; set; }
         public Nullable<int> participant_sn { get; set; }
     
-        public virtual statusTbl statusTbl { get; set; }
-        public virtual participantInEvent participantInEvent { get; set; }
+        public virtual Groups Groups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Participant_Event> Participant_Event { get; set; }
     }
 }

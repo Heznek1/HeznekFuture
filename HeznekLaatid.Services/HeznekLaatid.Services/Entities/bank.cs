@@ -12,18 +12,18 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class bank
+    public partial class Bank
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public bank()
+        public Bank()
         {
-            this.scholar_bank_details = new HashSet<scholar_bank_details>();
+            this.Scholarship_Student_Bank = new HashSet<Scholarship_Student_Bank>();
         }
     
         public int sn { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<scholar_bank_details> scholar_bank_details { get; set; }
+        public virtual ICollection<Scholarship_Student_Bank> Scholarship_Student_Bank { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 using System.Web.Http;
+using HeznekLaatid.Services.Utils;
 using HeznekLaatid.TokenService.Filters;
 
 namespace HeznekLaatid.Services.Controllers
@@ -13,15 +14,16 @@ namespace HeznekLaatid.Services.Controllers
         public IHttpActionResult ReturnUser()
         {
             var currentUser = User as ClaimsPrincipal;
-            var usernameClaim = currentUser.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name).Value;
-            var roleClaim = currentUser.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-            var instanceClaim = currentUser.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Actor)?.Value;
+            var role = currentUser.GetCurrentUserRole();
+
+            //var currentUser = User as ClaimsPrincipal;
+            //var usernameClaim = currentUser.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name).Value;
+            //var roleClaim = currentUser.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            //var instanceClaim = currentUser.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Actor)?.Value;
 
             return Ok(new
             {
-                usernameClaim,
-                roleClaim,
-                instanceClaim
+                role
             });
         }
     }

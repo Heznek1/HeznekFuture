@@ -12,16 +12,16 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class contactScholarAndCandidate
+    public partial class Student_Volunteer
     {
-        public string idScholar { get; set; }
-        public string idCandidate { get; set; }
-        public System.DateTime dateOfCall { get; set; }
-        public string study_funding { get; set; }
-        public string comments { get; set; }
-        public Nullable<System.DateTime> return_date { get; set; }
+        public string id { get; set; }
+        public int scholarshipSn { get; set; }
+        public System.DateTime dateOfVolunteer { get; set; }
+        public System.DateTime startHour { get; set; }
+        public System.DateTime finishHour { get; set; }
+        public string semester { get; set; }
     
-        public virtual userTbl userTbl { get; set; }
-        public virtual userTbl userTbl1 { get; set; }
+        public virtual Scholarship Scholarship { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }

@@ -12,19 +12,16 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class serviceTbl
+    public partial class Students_Scholarship
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public serviceTbl()
-        {
-            this.userTbl = new HashSet<userTbl>();
-        }
-    
+        public string id { get; set; }
         public int sn { get; set; }
-        public string typeOfService { get; set; }
-        public string longOfService { get; set; }
+        public Nullable<int> amountOfGivanScholarship { get; set; }
+        public Nullable<int> numOfDeposits { get; set; }
+        public Nullable<int> currentYear { get; set; }
+        public string wasGivenInPast { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userTbl> userTbl { get; set; }
+        public virtual Scholarship Scholarship { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }

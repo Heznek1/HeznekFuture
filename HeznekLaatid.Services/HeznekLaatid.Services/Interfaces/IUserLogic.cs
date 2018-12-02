@@ -10,15 +10,14 @@ namespace HeznekLaatid.Services.Interfaces
     public interface IUserLogic
     {
   
-            Task CreateUser(userTbl user);
             Task<userTbl> GetUserProfile(string userId);
             Task UpdateUserProfile(userTbl profile);
             Task AcceptEvent(@event evnt);
             Task DeclinedEvent(@event evnt);
-            Task RecievedMessages();
             Task WatchEvents();
             Task WatchCandidates();
-            Task UpdateCandidateProfile(string candidateId);
-   
+            Task UpdateUnCandidateProfile(string candidateId);
+            Task UploadFilesToSystem(files file);
+
     }
 }

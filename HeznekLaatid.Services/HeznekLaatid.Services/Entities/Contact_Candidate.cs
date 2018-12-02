@@ -12,13 +12,16 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class loginAndPermissions
+    public partial class Contact_Candidate
     {
-        public string id { get; set; }
-        public string password { get; set; }
-        public int userType { get; set; }
+        public string idScholar { get; set; }
+        public string idCandidate { get; set; }
+        public System.DateTime dateOfCall { get; set; }
+        public string study_funding { get; set; }
+        public string comments { get; set; }
+        public Nullable<System.DateTime> return_date { get; set; }
     
-        public virtual userTypeTbl userTypeTbl { get; set; }
-        public virtual userTbl userTbl { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
+        public virtual User_Profile User_Profile1 { get; set; }
     }
 }

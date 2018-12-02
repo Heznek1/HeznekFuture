@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 using System.Collections;
 using HeznekLaatid.Services.Entities;
 
-namespace HeznekLaatid.Services
+namespace HeznekLaatid.Services.Model
 {
     class UserData
     {
         /// <Summary>
         /// retrieval from DB all the users(scholarships student and former scholarships and candidates)
         /// </Summary>
-        public static List<userTbl> GetAllUsers()
+        public static List<User_Profile> GetAllUsers()
         {
             using (var db = new HeznekDBEntities())
             {
-                List<userTbl> users = db.userTbl.ToList();
+                List<User_Profile> users = db.User_Profile.ToList();
                 return users;
             }
         }
@@ -27,7 +27,7 @@ namespace HeznekLaatid.Services
         /// </Summary>
         public static ArrayList GetUsersByStatus(int status)
         {
-            List<userTbl> users = GetAllUsers();
+            List<User_Profile> users = GetAllUsers();
             ArrayList usersAL = new ArrayList();
 
             foreach (var user in users)
@@ -46,7 +46,7 @@ namespace HeznekLaatid.Services
         /// </Summary>
         public static ArrayList GetAllScholarshipsStudents()
         {
-            List<userTbl> users = GetAllUsers();
+            List<User_Profile> users = GetAllUsers();
             ArrayList usersAL = new ArrayList();
 
             foreach (var user in users)
@@ -62,11 +62,11 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// give all chosen users in the table that are from a specific city
         /// </Summary>
-        public static List<userTbl> GetAllChosenUsersFromSpecificCity(List<userTbl> usersList, String city)
+        public static List<User_Profile> GetAllChosenUsersFromSpecificCity(List<User_Profile> usersList, String city)
         {
             //get the serial number of the specific city
             int sn = ForeignKeys.GetCityNumberByName(city);
-            List<userTbl> users = usersList;
+            List<User_Profile> users = usersList;
             ArrayList usersAL = new ArrayList();
 
             foreach (var user in users)
@@ -84,9 +84,9 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// gets a specific user by Id(primary key) from the list of users that i get as a parameter
         /// </Summary>
-        public static userTbl GetSpecificUserById(char id, List<userTbl> usersList)
+        public static User_Profile GetSpecificUserById(char id, List<User_Profile> usersList)
         {
-            List<userTbl> users = usersList;
+            List<User_Profile> users = usersList;
 
             foreach (var user in users)
             {
@@ -102,9 +102,9 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// get users with the same first name from a list of chosen users
         /// </Summary>   
-        public static ArrayList GetSpecificUsersByFn(List<userTbl> usersList, String fn)
+        public static ArrayList GetSpecificUsersByFn(List<User_Profile> usersList, String fn)
         {
-            List<userTbl> users = usersList;
+            List<User_Profile> users = usersList;
             ArrayList usersAL = new ArrayList();
 
             foreach (var user in users)
@@ -121,9 +121,9 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// get users with the same last name from a list of chosen users
         /// </Summary>   
-        public static ArrayList GetSpecificUsersByLn(List<userTbl> usersList, String ln)
+        public static ArrayList GetSpecificUsersByLn(List<User_Profile> usersList, String ln)
         {
-            List<userTbl> users = usersList;
+            List<User_Profile> users = usersList;
             ArrayList usersAL = new ArrayList();
 
             foreach (var user in users)
@@ -140,9 +140,9 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// get users with the same full name from a list of chosen users
         /// </Summary>
-        public static ArrayList GetSpecificUserByFullName(List<userTbl> usersList, String fullName)
+        public static ArrayList GetSpecificUserByFullName(List<User_Profile> usersList, String fullName)
         {
-            List<userTbl> users = usersList;
+            List<User_Profile> users = usersList;
             ArrayList usersAL = new ArrayList();
 
             foreach (var user in users)
@@ -159,11 +159,11 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// get all active candidates(from genral details candidates table)
         /// </Summary>
-        public static List<generalDetailsActiveCandidate> GetCandidatesGenralDetails()
+        public static List<Active_Candidate_Info> GetCandidatesGenralDetails()
         {
             using (var db = new HeznekDBEntities())
             {
-                List<generalDetailsActiveCandidate> users = db.generalDetailsActiveCandidate.ToList();
+                List<Active_Candidate_Info> users = db.Active_Candidate_Info.ToList();
                 return users;
             }
         }
@@ -173,7 +173,7 @@ namespace HeznekLaatid.Services
         /// </Summary>
         public static ArrayList GetActiveCandidatesByPsychometricGrade(int grade)
         {
-            List<generalDetailsActiveCandidate> users = GetCandidatesGenralDetails();
+            List<Active_Candidate_Info> users = GetCandidatesGenralDetails();
             ArrayList usersAL = new ArrayList();
 
             foreach (var user in users)
@@ -197,7 +197,7 @@ namespace HeznekLaatid.Services
             ArrayList students = GetAllScholarshipsStudents();
             ArrayList studentsAL = new ArrayList();
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 if (student.averageDegree >= avergeGrade)
                 {
@@ -217,7 +217,7 @@ namespace HeznekLaatid.Services
             ArrayList students = GetAllScholarshipsStudents();
             ArrayList studentsAL = new ArrayList();
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 if (student.averageDegree <= avergeGrade)
                 {
@@ -239,7 +239,7 @@ namespace HeznekLaatid.Services
             ArrayList studentsAL = new ArrayList();
             int num = ForeignKeys.GetInstitutionNumberByName(institute);
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 if (student.academicInstitution == num)
                 {
@@ -260,7 +260,7 @@ namespace HeznekLaatid.Services
             ArrayList studentsAL = new ArrayList();
             int ageOfStudent = 0;
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 //calaulate the age of the student by date of birth
                 ageOfStudent = DateTime.Today.Year - student.dateOfBirth.Value.Year;
@@ -285,7 +285,7 @@ namespace HeznekLaatid.Services
             ArrayList studentsAL = new ArrayList();
             int ageOfStudent = 0;
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 //calaulate the age of the student by date of birth
                 ageOfStudent = DateTime.Today.Year - student.dateOfBirth.Value.Year;
@@ -308,7 +308,7 @@ namespace HeznekLaatid.Services
             ArrayList studentsAL = new ArrayList();
             int num = ForeignKeys.GetNumberOfFieldByName(field);
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 if (student.studyField == num)
                 {
@@ -327,7 +327,7 @@ namespace HeznekLaatid.Services
             ArrayList chosenUsers = users;
             ArrayList newUsers = new ArrayList();
 
-            foreach (userTbl user in chosenUsers)
+            foreach (User_Profile user in chosenUsers)
             {
                 if (user.academicParents == academicParents)
                 {
@@ -346,7 +346,7 @@ namespace HeznekLaatid.Services
             ArrayList students = GetAllScholarshipsStudents();
             ArrayList newStudents = new ArrayList();
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 if (student.startYear == year)
                 {
@@ -366,7 +366,7 @@ namespace HeznekLaatid.Services
             ArrayList students = GetAllScholarshipsStudents();
             ArrayList newStudents = new ArrayList();
 
-            foreach (userTbl student in students)
+            foreach (User_Profile student in students)
             {
                 if (student.excpectedCompletionYear == year)
                 {
@@ -386,7 +386,7 @@ namespace HeznekLaatid.Services
             ArrayList users = usersArr;
             ArrayList usersAL = new ArrayList();
 
-            foreach (userTbl user in users)
+            foreach (User_Profile user in users)
             {
                 if (user.gender.Equals(gender))
                 {
@@ -407,7 +407,7 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// add user to the list of users
         /// </Summary>
-        public static void AddUserToUsers(userTbl user)
+        public static void AddUserToUsers(User_Profile user)
         {
             try
             {
@@ -415,7 +415,7 @@ namespace HeznekLaatid.Services
                 {
                     using (var db = new HeznekDBEntities())
                     {
-                        db.userTbl.Add(user);
+                        db.User_Profile.Add(user);
                         db.SaveChanges();                       
                     }
 
@@ -434,7 +434,7 @@ namespace HeznekLaatid.Services
 
         private static bool CheckIfUserInList(string id)
         {
-                List<userTbl> users = GetAllUsers();
+                List<User_Profile> users = GetAllUsers();
 
                     foreach (var user in users)
                     {
@@ -451,14 +451,14 @@ namespace HeznekLaatid.Services
         /// </Summary>
         public static void AddUserToActiveCandidate(string userId)
         {
-            var user = new generalDetailsActiveCandidate()
+            var user = new Active_Candidate_Info()
             {
                 idCandidate = userId
             };
 
             using (var db = new HeznekDBEntities())
             {
-                db.generalDetailsActiveCandidate.Add(user);
+                db.Active_Candidate_Info.Add(user);
                 db.SaveChangesAsync();
             }
         }
@@ -469,40 +469,53 @@ namespace HeznekLaatid.Services
         /// <Summary>
         /// updating user in the list of users
         /// </Summary>
-        public static async Task UpdateUserInList(userTbl updatedUser)
+        public static void UpdateUserInList(User_Profile updatedUser)
         {
             using (var db = new HeznekDBEntities())
             {
-                List<userTbl> users = GetAllUsers();
+                List<User_Profile> users = GetAllUsers();
 
-                foreach (userTbl user in users)
+                foreach (User_Profile user in users)
                 {
                     if (user.id.Equals(updatedUser.id))
                     {
-                        db.userTbl.Remove(user);
-                        db.userTbl.Add(updatedUser);
-                        await db.SaveChangesAsync();
+                        db.User_Profile.Remove(user);
+                        db.User_Profile.Add(updatedUser);
+                        db.SaveChanges();
                     }
                 }
             }
         }
 
         /*removal query*/
-        public static async Task RemoveUserFromList(userTbl userToRemove)
+        public static void RemoveUserFromList(string userId)
         {
             using (var db = new HeznekDBEntities())
             {
-                List<userTbl> users = GetAllUsers();
+                List<User_Profile> users = GetAllUsers();
 
-                foreach (userTbl user in users)
+                foreach (User_Profile user in users)
                 {
-                    if (user.id.Equals(userToRemove.id))
+                    if (user.id.Equals(userId))
                     {
-                        db.userTbl.Remove(user);
-                        await db.SaveChangesAsync();
+                        db.User_Profile.Remove(user);
+                        db.SaveChanges();
                     }
                 }
             }
+        }
+
+        public static Boolean CheckExistingUserInDB(string  userId)
+        {
+            var db = new HeznekDBEntities();
+            List<User_Profile> users = db.User_Profile.ToList();
+
+            foreach (var user in users)
+            {
+                if (user.id == userId)
+                    return true;
+            }
+            return false;
         }
     }
 }

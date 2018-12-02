@@ -12,7 +12,7 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class generalDetailsActiveCandidate
+    public partial class Active_Candidate_Info
     {
         public string idCandidate { get; set; }
         public Nullable<int> psychometric_grade { get; set; }
@@ -33,7 +33,7 @@ namespace HeznekLaatid.Services.Entities
         public Nullable<int> average_wage_mother { get; set; }
         public Nullable<int> disabilty_parents { get; set; }
     
-        public virtual organization_frames_highSchool organization_frames_highSchool { get; set; }
-        public virtual userTbl userTbl { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
+        public virtual Organization_Frames_HighSchool Organization_Frames_HighSchool { get; set; }
     }
 }

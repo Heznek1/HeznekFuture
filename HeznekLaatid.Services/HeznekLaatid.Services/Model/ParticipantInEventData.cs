@@ -12,12 +12,12 @@ namespace HeznekLaatid.Services.Model
         /// <Summary>
         /// get all participants from all the existing events in the data base.
         /// </Summary>
-        public static List<participantInEvent> GetAllParticipantsInAllEvent()
+        public static List<Participant_Event> GetAllParticipantsInAllEvent()
         {
             var db = new HeznekDBEntities();
-            List<participantInEvent> events_Participants = new List<participantInEvent>();
+            List<Participant_Event> events_Participants = new List<Participant_Event>();
 
-            events_Participants = db.participantInEvent.ToList();
+            events_Participants = db.Participant_Event.ToList();
 
             return events_Participants;
         }
@@ -25,20 +25,20 @@ namespace HeznekLaatid.Services.Model
         /// <Summary>
         /// get the full data of all the particpants from a specific event
         /// </Summary>
-        public static List<userTbl> GetAllParticipantsInEvent(int sn)
+        public static List<User_Profile> GetAllParticipantsInEvent(int sn)
         {
             var db = new HeznekDBEntities();
-            List<participantInEvent> pe = db.participantInEvent.ToList();
-            List<participantInEvent> participantsInEvent = new List<participantInEvent>();
+            List<Participant_Event> pe = db.Participant_Event.ToList();
+            List<Participant_Event> participantsInEvent = new List<Participant_Event>();
 
-            List<userTbl> usersInEvent = new List<userTbl>();
+            List<User_Profile> usersInEvent = new List<User_Profile>();
 
             foreach(var p in pe)
             {
                 if (p.sn == sn)
                 {
                     participantsInEvent.Add(p);
-                    usersInEvent.Add((ForeignKeys.GetUserConnectedByID(p.participant_id)));
+                    usersInEvent.Add((ForeignKeys.GetUserConnectedByID(p.id_participant)));
                 }
             }
 
@@ -48,24 +48,24 @@ namespace HeznekLaatid.Services.Model
         /// <Summary>
         /// add to the table participantInEvent a row(new object of participantInEvent)
         /// </Summary>
-        public static void AddParticipantToEvent(string id, int sn)
+        public static void AddParticipantToEvent(string id, int sn, string review)
         {
-            List<@event> events = EventData.GetAllEvents();
+            List<Event> events = EventData.GetAllEvents();
             var db = new HeznekDBEntities();          
 
             foreach (var evnt in events)
             {
                 if (evnt.sn == sn)
                 {
-                    var pe = new participantInEvent()
+                    var pe = new Participant_Event()
                     {
-                       sn = sn,
-                        participant_id = id,
-                        typeOfParticipants = evnt.typeOfParticipants
-                       
+                        sn = sn,
+                        id_participant = id,
+                        review = review
+
                     };
 
-                    db.participantInEvent.Add(pe);
+                    db.Participant_Event.Add(pe);
                     db.SaveChanges();
                     break;// find what i was looking for so get out from loop
                 }
@@ -78,18 +78,33 @@ namespace HeznekLaatid.Services.Model
         /// </Summary>
         public static void RemoveParticipantFromEvent(string id, int sn)
         {
-            List<participantInEvent> pe = GetAllParticipantsInAllEvent();
+            List<Participant_Event> pe = GetAllParticipantsInAllEvent();
             var db = new HeznekDBEntities();
 
             foreach (var p in pe)
             {
-                if (p.sn == sn && p.participant_id == id)
+                if (p.sn == sn && p.id_participant == id)
                 {
-                    db.participantInEvent.Remove(p);
+                    db.Participant_Event.Remove(p);
                     db.SaveChanges();
                     break;// find what i was looking for so get out from loop
                 }
             }          
+        }
+
+        public static void UpdateParticipantInEvent(Participant_Event p_e)
+        {
+            var db = new HeznekDBEntities();
+            List<Participant_Event> pe = db.Participant_Event.ToList();
+
+            foreach (var p in pe)
+            {
+                if (p.sn == p_e.sn && p.id_participant == p_e.id_participant)
+                {
+                    p.review = p_e.review;
+                    break; //get out from the loop because i find what i needed
+                }
+            }
         }
     }
 }

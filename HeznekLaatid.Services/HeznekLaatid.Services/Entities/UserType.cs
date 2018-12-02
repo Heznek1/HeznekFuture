@@ -12,20 +12,21 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class academicInstitutTbl
+    public partial class UserType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public academicInstitutTbl()
+        public UserType()
         {
-            this.userTbl = new HashSet<userTbl>();
+            this.Login_Permissions = new HashSet<Login_Permissions>();
+            this.Message = new HashSet<Message>();
         }
     
-        public int sn { get; set; }
-        public string nameOfInstitut { get; set; }
-        public Nullable<int> placeOfInstitute { get; set; }
+        public int numOfType { get; set; }
+        public string userType1 { get; set; }
     
-        public virtual cityTbl cityTbl { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userTbl> userTbl { get; set; }
+        public virtual ICollection<Login_Permissions> Login_Permissions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Message { get; set; }
     }
 }

@@ -12,21 +12,19 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class participantInEvent
+    public partial class Status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public participantInEvent()
+        public Status()
         {
-            this.@event = new HashSet<@event>();
+            this.User_Profile = new HashSet<User_Profile>();
         }
     
-        public int sn { get; set; }
-        public int typeOfParticipants { get; set; }
-        public string event_name { get; set; }
-        public string participant_id { get; set; }
+        public int numOfStatus { get; set; }
+        public string primaryStatusName { get; set; }
+        public string secondaryStatusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<@event> @event { get; set; }
-        public virtual userTbl userTbl { get; set; }
+        public virtual ICollection<User_Profile> User_Profile { get; set; }
     }
 }

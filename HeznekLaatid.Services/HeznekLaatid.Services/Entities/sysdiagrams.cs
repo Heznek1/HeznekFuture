@@ -12,15 +12,12 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Message
+    public partial class sysdiagrams
     {
-        public int idMessage { get; set; }
-        public string idSender { get; set; }
-        public string message_subject { get; set; }
-        public string message_content { get; set; }
-        public int send_to_group { get; set; }
-    
-        public virtual User_Profile User_Profile { get; set; }
-        public virtual UserType UserType { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

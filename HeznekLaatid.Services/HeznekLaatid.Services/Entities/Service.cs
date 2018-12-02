@@ -12,21 +12,19 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class userTypeTbl
+    public partial class Service
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public userTypeTbl()
+        public Service()
         {
-            this.loginAndPermissions = new HashSet<loginAndPermissions>();
-            this.message = new HashSet<message>();
+            this.User_Profile = new HashSet<User_Profile>();
         }
     
-        public int numOfType { get; set; }
-        public string userType { get; set; }
+        public int sn { get; set; }
+        public string typeOfService { get; set; }
+        public string longOfService { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<loginAndPermissions> loginAndPermissions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<message> message { get; set; }
+        public virtual ICollection<User_Profile> User_Profile { get; set; }
     }
 }

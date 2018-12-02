@@ -7,7 +7,7 @@ namespace HeznekLaatid.Services.Interfaces
     public interface IUserRepository
     {
         Task CreateUser(UserRegistrationViewModel profile);
-        Task<userTbl> GetUserProfile(string userId);
-        Task UpdateUserProfile(userTbl profile);
+        Task<User_Profile> GetUserProfile(string userId);
+        Task UpdateUserProfile(User_Profile profile);
     }
 }

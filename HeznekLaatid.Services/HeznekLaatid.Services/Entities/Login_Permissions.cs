@@ -12,16 +12,13 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class studentScholarship
+    public partial class Login_Permissions
     {
         public string id { get; set; }
-        public int sn { get; set; }
-        public Nullable<int> amountOfGivanScholarship { get; set; }
-        public Nullable<int> numOfDeposits { get; set; }
-        public Nullable<int> currentYear { get; set; }
-        public string wasGivenInPast { get; set; }
+        public string password { get; set; }
+        public int userType { get; set; }
     
-        public virtual scholarship scholarship { get; set; }
-        public virtual userTbl userTbl { get; set; }
+        public virtual UserType UserType1 { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }

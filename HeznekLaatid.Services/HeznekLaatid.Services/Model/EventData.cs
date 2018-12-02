@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.ModelBinding;
-using  HeznekLaatid.Services.Entities;
+using HeznekLaatid.Services.Entities;
 
 namespace HeznekLaatid.Services.Model
 {
@@ -12,11 +12,11 @@ namespace HeznekLaatid.Services.Model
         /// <Summary>
         /// gets all the evnts from the list of events
         /// </Summary>
-        public static List<@event> GetAllEvents()
+        public static List<Event> GetAllEvents()
             {
-                using (var db = new HeznekDBEntities)
+                using (var db = new HeznekDBEntities())
                 {
-                    List<@event> events = db.@event.ToList();
+                    List<Event> events = db.Event.ToList();
                     return events;
                 }
             }
@@ -24,11 +24,11 @@ namespace HeznekLaatid.Services.Model
         /// <Summary>
         /// update a specific event in the list of events
         /// </Summary>
-        public static void updateEventInList(@event updatedEvent)
+        public static void UpdateEventInList(Event updatedEvent)
          {
              using (var db = new HeznekDBEntities())
              {
-                 List<@event> events = GetAllEvents();
+                 List<Event> events = GetAllEvents();
                  
                  foreach (var eventIndex in events)
                  {
@@ -43,17 +43,19 @@ namespace HeznekLaatid.Services.Model
                          //num of actual participant is calculates from the table ParticipantInEvent
                      }
                  }
+
+                 db.SaveChanges();
              }
          }
 
         /// <Summary>
         ///  add an event to list of events
         /// </Summary>
-        public static void AddEvent(@event eventToAdd)
+        public static void AddEvent(Event eventToAdd)
         {
             using (var db = new HeznekDBEntities())
             {
-                db.@event.Add(eventToAdd);
+                db.Event.Add(eventToAdd);
                 db.SaveChanges();
             }
         }
@@ -63,14 +65,14 @@ namespace HeznekLaatid.Services.Model
         /// </Summary>
         public static void RemoveEvent(int sn)
         {
-            List<@event> events = GetAllEvents();
+            List<Event> events = GetAllEvents();
 
             foreach (var evnt in events)
             {
                 if (evnt.sn == sn)
                 {
                     var db = new HeznekDBEntities();
-                    db.@event.Remove(evnt);
+                    db.Event.Remove(evnt);
                     db.SaveChanges();
 
                 }

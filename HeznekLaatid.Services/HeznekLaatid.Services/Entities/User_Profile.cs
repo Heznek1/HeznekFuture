@@ -12,19 +12,19 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class userTbl
+    public partial class User_Profile
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public userTbl()
+        public User_Profile()
         {
-            this.contactScholarAndCandidate = new HashSet<contactScholarAndCandidate>();
-            this.contactScholarAndCandidate1 = new HashSet<contactScholarAndCandidate>();
-            this.deposits_scholarship = new HashSet<deposits_scholarship>();
-            this.files = new HashSet<files>();
-            this.message = new HashSet<message>();
-            this.participantInEvent = new HashSet<participantInEvent>();
-            this.studentScholarship = new HashSet<studentScholarship>();
-            this.studentVolunteer = new HashSet<studentVolunteer>();
+            this.Contact_Candidate = new HashSet<Contact_Candidate>();
+            this.Contact_Candidate1 = new HashSet<Contact_Candidate>();
+            this.Deposits_Scholarship = new HashSet<Deposits_Scholarship>();
+            this.File = new HashSet<File>();
+            this.Message = new HashSet<Message>();
+            this.Participant_Event = new HashSet<Participant_Event>();
+            this.Student_Scholarship = new HashSet<Student_Scholarship>();
+            this.Student_Volunteer = new HashSet<Student_Volunteer>();
         }
     
         public string id { get; set; }
@@ -57,29 +57,29 @@ namespace HeznekLaatid.Services.Entities
         public string service_description { get; set; }
         public Nullable<double> averageDegree { get; set; }
     
-        public virtual academicInstitutTbl academicInstitutTbl { get; set; }
-        public virtual cityTbl cityTbl { get; set; }
+        public virtual Academic_Institut Academic_Institut { get; set; }
+        public virtual Active_Candidate_Info Active_Candidate_Info { get; set; }
+        public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<contactScholarAndCandidate> contactScholarAndCandidate { get; set; }
+        public virtual ICollection<Contact_Candidate> Contact_Candidate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<contactScholarAndCandidate> contactScholarAndCandidate1 { get; set; }
+        public virtual ICollection<Contact_Candidate> Contact_Candidate1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<deposits_scholarship> deposits_scholarship { get; set; }
+        public virtual ICollection<Deposits_Scholarship> Deposits_Scholarship { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<files> files { get; set; }
-        public virtual loginAndPermissions loginAndPermissions { get; set; }
+        public virtual ICollection<File> File { get; set; }
+        public virtual Login_Permissions Login_Permissions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<message> message { get; set; }
+        public virtual ICollection<Message> Message { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<participantInEvent> participantInEvent { get; set; }
-        public virtual scholar_bank_details scholar_bank_details { get; set; }
-        public virtual serviceTbl serviceTbl { get; set; }
-        public virtual statusTbl statusTbl { get; set; }
+        public virtual ICollection<Participant_Event> Participant_Event { get; set; }
+        public virtual Scholarship_Student_Bank Scholarship_Student_Bank { get; set; }
+        public virtual Service Service { get; set; }
+        public virtual Status Status1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<studentScholarship> studentScholarship { get; set; }
+        public virtual ICollection<Student_Scholarship> Student_Scholarship { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<studentVolunteer> studentVolunteer { get; set; }
-        public virtual studyFieldTbl studyFieldTbl { get; set; }
-        public virtual generalDetailsActiveCandidate generalDetailsActiveCandidate { get; set; }
+        public virtual ICollection<Student_Volunteer> Student_Volunteer { get; set; }
+        public virtual Study_Field Study_Field { get; set; }
     }
 }

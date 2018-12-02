@@ -13,31 +13,31 @@ namespace HeznekLaatid.Services.Repositories
         {
             using (var db = new HeznekDBEntities())
             {
-                db.userTbl.Add(this.MapUserProfile(profile));
+                db.User_Profile.Add(this.MapUserProfile(profile));
                 await db.SaveChangesAsync();
             }
         }
 
-        public async Task<userTbl> GetUserProfile(string userId)
+        public async Task<User_Profile> GetUserProfile(string userId)
         {
             using (var db = new HeznekDBEntities())
             {
-                return await db.userTbl.FirstOrDefaultAsync(p => p.id == userId);
+                return await db.User_Profile.FirstOrDefaultAsync(p => p.id == userId);
             }
         }
 
-        public async Task UpdateUserProfile(userTbl profile)
+        public async Task UpdateUserProfile(User_Profile profile)
         {
             using (var db = new HeznekDBEntities())
             {
-                db.userTbl.AddOrUpdate(profile);
+                db.User_Profile.AddOrUpdate(profile);
                 await db.SaveChangesAsync();
             }
         }
 
-        private userTbl MapUserProfile(UserRegistrationViewModel user)
+        private User_Profile MapUserProfile(UserRegistrationViewModel user)
         {
-            return new userTbl()
+            return new User_Profile()
             {
                 email = user.email,
                 id = user.username,

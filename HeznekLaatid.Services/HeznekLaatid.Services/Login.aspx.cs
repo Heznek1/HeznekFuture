@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Threading.Tasks;
+using System.Net.Mail;
 
 
 namespace HeznekLaatid.Services
@@ -20,22 +21,16 @@ namespace HeznekLaatid.Services
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string id = TextBox1.Text;
-            string fn = TextBox2.Text;
-            string ln = TextBox3.Text;
-            string add = TextBox4.Text;
-    
-
-                UserData.AddUserToUsers(new userTbl()
-                {
-
-                    id = "307053214",
-                    firstName = "Mor",
-                    lastName = "Azran",
-                    address = "Ben Zvi 10",
-                    status = 1,
-                    typeOfService = 2
-                });
+         
+            MailMessage mail = new MailMessage("elinoraz21@gmail.com", "elinoraz21@gmail.com");
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Host = "smtp.gmail.com";
+            mail.Subject = "this is a test email.";
+            mail.Body = "this is my test email body";
+            client.Send(mail);
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)

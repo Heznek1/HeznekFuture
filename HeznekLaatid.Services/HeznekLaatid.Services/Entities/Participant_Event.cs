@@ -12,19 +12,13 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class studyFieldTbl
+    public partial class Participant_Event
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public studyFieldTbl()
-        {
-            this.userTbl = new HashSet<userTbl>();
-        }
-    
         public int sn { get; set; }
-        public string field { get; set; }
-        public string nameOfDegree { get; set; }
+        public string id_participant { get; set; }
+        public string review { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userTbl> userTbl { get; set; }
+        public virtual Event Event { get; set; }
+        public virtual User_Profile User_Profile { get; set; }
     }
 }

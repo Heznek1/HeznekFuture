@@ -12,22 +12,20 @@ namespace HeznekLaatid.Services.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class statusTbl
+    public partial class Academic_Institut
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public statusTbl()
+        public Academic_Institut()
         {
-            this.@event = new HashSet<@event>();
-            this.userTbl = new HashSet<userTbl>();
+            this.User_Profile = new HashSet<User_Profile>();
         }
     
-        public int numOfStatus { get; set; }
-        public string primaryStatusName { get; set; }
-        public string secondaryStatusName { get; set; }
+        public int sn { get; set; }
+        public string nameOfInstitut { get; set; }
+        public Nullable<int> placeOfInstitute { get; set; }
     
+        public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<@event> @event { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userTbl> userTbl { get; set; }
+        public virtual ICollection<User_Profile> User_Profile { get; set; }
     }
 }

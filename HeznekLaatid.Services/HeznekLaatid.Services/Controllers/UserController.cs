@@ -17,7 +17,6 @@ namespace HeznekLaatid.Services.Controllers
         private readonly IUserRepository userRepository;
         public UserController(IUserRepository userRepository)
         {
-            new UserRepository();
             this.userRepository = userRepository;
         }
 
