@@ -210,5 +210,6 @@ namespace HeznekLaatid.Services.Logic
             return UserData.GetAllStudentsFromTheSameStudyField(field_name);
         }
 
+
     }
 }
