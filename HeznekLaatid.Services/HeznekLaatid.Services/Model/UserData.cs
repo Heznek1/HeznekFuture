@@ -432,20 +432,8 @@ namespace HeznekLaatid.Services.Model
             }
         }
 
-        private static bool CheckIfUserInList(string id)
-        {
-                List<User_Profile> users = GetAllUsers();
-
-                    foreach (var user in users)
-                    {
-                        if (user.id.Equals(id))
-                            return true;
-                    }
-
-                 return false;
-        }
-        
-
+  
+       
         /// <Summary>
         /// add user to the list of active candidates
         /// </Summary>
@@ -517,6 +505,7 @@ namespace HeznekLaatid.Services.Model
             }
             return false;
         }
+     
     }
 }
 
