@@ -12,46 +12,66 @@ namespace HeznekLaatid.Services.Logic
 {
     public abstract class AbstractAdmin
     {
-   
+ /// <summary>
+ /// watch all users that exist in the systen
+ /// </summary>
+ /// <returns>List of users</returns>
         protected List<User_Profile> WatchAllUsers()
-
         {
             return UserData.GetAllUsers();
-
         }
-
-        protected ArrayList WatchCandidates()
-        {       
-                return UserData.GetUsersByStatus(5);
-        }
-
-        protected ArrayList WatchUnActiveCandidates()
-        {
-            return UserData.GetUsersByStatus(6);
-
-        }
-
+/// <summary>
+/// watch in table only the beginners scholarships students
+/// </summary>
+/// <returns>ArrayList of beginners</returns>
         protected ArrayList WatchScolarshipStudents_beginners()
         {
             return UserData.GetUsersByStatus(1);
         }
-
+/// <summary>
+/// watch countinue scholarship students
+/// </summary>
+/// <returns>Array list of continue scholarships students</returns>
         protected ArrayList WatchScolarshipStudents_continue()
         {
             return UserData.GetUsersByStatus(2);
         }
-
+/// <summary>
+/// watch graduate scholarship students - means they don't recieve scholarship anymore
+/// </summary>
+/// <returns>ArrayList of graduate</returns>
         protected ArrayList WatchScolarshipStudents_graduate()
         {
             return UserData.GetUsersByStatus(3);
         }
-
+/// <summary>
+/// watch former scholarships students- don't get scholarship and the manager don't want them to be a part of the organization
+/// </summary>
+/// <returns></returns>
         protected ArrayList WatchScolarshipStudents_former()
         {
             return UserData.GetUsersByStatus(4);
         }
 
-        //get users from status 1-3
+        protected ArrayList WatchCandidates()
+        {
+            return UserData.GetUsersByStatus(5);
+        }
+
+   
+        protected ArrayList WatchUnActiveCandidates_InProcess()
+        {
+            return UserData.GetUsersByStatus(6);
+        }
+
+        protected ArrayList WatchUnActiveCandidates_EndOfTreatment()
+        {
+            return UserData.GetUsersByStatus(7);
+        }
+
+
+
+        //get users from status 1-3 -> general method
         protected ArrayList WatchScholarshipsStudents(int num)
         {
             return UserData.GetAllScholarshipsStudents();
@@ -131,14 +151,14 @@ namespace HeznekLaatid.Services.Logic
 
                                              /*Quries Tables*/
 
-        protected ArrayList GetUsersByGender_Students(string gender)
+        protected ArrayList WatchUsersByGender_Students(string gender)
         {
             ArrayList users = UserData.GetAllScholarshipsStudents();
             return UserData.GetAllChosenUsersFromTheSameGender(gender, users);
 
         }
 
-        protected ArrayList GetUsersByGender_ActiveCadidates(string gender)
+        protected ArrayList WatchUsersByGender_ActiveCadidates(string gender)
         {
             List<Active_Candidate_Info> users = UserData.GetCandidatesGenralDetails();
             ArrayList usersArr = new ArrayList();
@@ -150,36 +170,45 @@ namespace HeznekLaatid.Services.Logic
             return UserData.GetAllChosenUsersFromTheSameGender(gender,usersArr);
         }
 
-        protected ArrayList GetUsersByGender_UnActiveCadidates_continue_treatment(string gender)
+        protected ArrayList WatchUsersByGender_UnActiveCadidates_InProcess(string gender)
         {
             ArrayList users = UserData.GetAllScholarshipsStudents();
             return UserData.GetAllChosenUsersFromTheSameGender(gender, users);
         }
 
-        protected ArrayList GetUsersByAverege_Students(float average)
+        protected ArrayList WatchUsersByAverege_Students(float average)
         {
             return UserData.GetStudentsHigerAverege(average);
         }
 
-        protected ArrayList GetUsersByFinishYear_Students(int year)
+        protected ArrayList WatchUsersByFinishYear_Students(int year)
         {
             return UserData.GetAllStudentsWithSameFinishYear(year);
         }
 
-        protected ArrayList GetUsersFromSameCity_Students(string city)
+        protected ArrayList WatchUsersFromSameCity_Students(string city)
         {
             ArrayList users = UserData.GetAllScholarshipsStudents();
            
             return UserData.GetAllChosenUsersFromSpecificCity(users, city);
         }
 
-        protected ArrayList GetUsersFromSameCity_ActiveCandidates(string city)
+        protected ArrayList WatchUsersFromSameCity_ActiveCandidates(string city)
         {
             ArrayList users = UserData.GetUsersByStatus(5);
 
             return UserData.GetAllChosenUsersFromSpecificCity(users, city);
         }
 
+        protected ArrayList WatchStudentsFromSameInstitut_Students(string institut)
+        {
+            return UserData.GetStudentsFromTheSameInstitution(institut);
+        }
+
+        protected ArrayList WatchStudentsFromSameStudyField(string field_name)
+        {
+            return UserData.GetAllStudentsFromTheSameStudyField(field_name);
+        }
 
     }
 }

@@ -73,7 +73,6 @@ namespace HeznekLaatid.Services.Model
             }
 
             return false;
-
         }
     }
 }

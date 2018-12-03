@@ -180,31 +180,31 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Entities\academicInstitutTbl.cs">
+    <Compile Include="Entities\Academic_Institut.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\bank.cs">
+    <Compile Include="Entities\Active_Candidate_Info.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\cityTbl.cs">
+    <Compile Include="Entities\Bank.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\contactScholarAndCandidate.cs">
+    <Compile Include="Entities\City.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\deposits_scholarship.cs">
+    <Compile Include="Entities\Contact_Candidate.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\event.cs">
+    <Compile Include="Entities\Deposits_Scholarship.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\files.cs">
+    <Compile Include="Entities\Event.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\generalDetailsActiveCandidate.cs">
+    <Compile Include="Entities\File.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\groups.cs">
+    <Compile Include="Entities\Groups.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\HeznekDBEntities.Context.cs">
@@ -222,43 +222,46 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HeznekDBEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\loginAndPermissions.cs">
+    <Compile Include="Entities\Login_Permissions.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\message.cs">
+    <Compile Include="Entities\Message.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\organization_frames_highSchool.cs">
+    <Compile Include="Entities\Organization_Frames_HighSchool.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\scholarship.cs">
+    <Compile Include="Entities\Participant_Event.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\scholar_bank_details.cs">
+    <Compile Include="Entities\Scholarship.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\serviceTbl.cs">
+    <Compile Include="Entities\Scholarship_Student_Bank.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\statusTbl.cs">
+    <Compile Include="Entities\Service.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\studentScholarship.cs">
+    <Compile Include="Entities\Status.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\studentVolunteer.cs">
+    <Compile Include="Entities\Student_Scholarship.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\studyFieldTbl.cs">
+    <Compile Include="Entities\Student_Volunteer.cs">
+      <DependentUpon>HeznekDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Study_Field.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\sysdiagrams.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\userTbl.cs">
+    <Compile Include="Entities\UserType.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\userTypeTbl.cs">
+    <Compile Include="Entities\User_Profile.cs">
       <DependentUpon>HeznekDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -267,6 +270,7 @@
     <Compile Include="Interfaces\IUserLogic.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Logic\AbstractAdmin.cs" />
+    <Compile Include="Logic\AdminLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -278,6 +282,9 @@
     <Compile Include="Model\EventData.cs" />
     <Compile Include="Model\MessageData.cs" />
     <Compile Include="Model\ParticipantInEventData.cs" />
+    <Compile Include="Model\ScholarshipData.cs" />
+    <Compile Include="Model\StudentScholarshipData.cs" />
+    <Compile Include="Model\StudentVolunteerData.cs" />
     <Compile Include="Model\UserData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
